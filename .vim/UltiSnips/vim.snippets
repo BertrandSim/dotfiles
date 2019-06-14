@@ -1,0 +1,13 @@
+snippet "fu?nc?" "function" rb
+function! ${1:name}($2)
+	${3:${VISUAL:"body}}
+endfunction
+$0
+endsnippet
+
+snippet if "if" b
+if $1
+	${2:${VISUAL:}}
+endif
+$0
+endsnippet

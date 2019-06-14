@@ -1,0 +1,78 @@
+# Generic .Rprofile for general use
+# to overwrite, add a specific .Rprofile in a specific directory
+# last modified 2019-06-14
+# ** Note: in case of portability issues, do not use things that will affect the running behaviour of code 
+#  ( although visual stuff is fine )
+
+# set repos ----
+
+local({
+  r <- getOption("repos")             
+  r["CRAN"] <-  "https://cran.rstudio.com/"
+  r["CRANextra"] <- "https://cloud.r-project.org"
+  options(repos = r)
+})
+
+# options ----
+
+# options(stringsAsFactors=FALSE)
+ 
+options(max.print=100)
+options(digits=5)
+# options(scipen=10)    
+# # for using integers instead of numeric, use as.integer() or append 'L', eg. 1L
+ 
+ # options(show.signif.stars=FALSE)
+ 
+options(editor="vim")		# }
+options(help_type="text") 	# } loads help() in vim windows
+# options(help_type="html")
+
+options(menu.graphics=FALSE)
+ 
+# options(prompt="> ")
+# options(continue="+ ")
+# options(width = 80)
+ 
+if(Sys.getenv("TERM") == "xterm-256color")
+  library("colorout")
+ 
+# start and end ----
+
+.First <- function(){
+}
+ 
+.Last <- function(){
+}
+
+
+# load packages ----
+
+# auto.loads <- c("tidyverse", "rotations")
+
+# sshhh <- function(a.package){
+#   suppressWarnings(suppressPackageStartupMessages(
+#     library(a.package, character.only=TRUE)))
+# }
+ 
+# if(interactive()){
+#   invisible(sapply(auto.loads, sshhh))
+# }
+
+# custom functions ----
+ 
+.env <- new.env()
+
+# .str() truncates output of str()
+# idea: formals(utils:::str.default)$list.len <- 3
+.env$.str <- function(..., list.len=3) {   
+  utils:::str(..., list.len=list.len)
+}
+
+attach(.env)
+
+
+
+# end ----
+
+message("** Successfully loaded .Rprofile **")
