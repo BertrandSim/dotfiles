@@ -1,3 +1,6 @@
 [submodule ".vim/pack/bundle/start/vim-solarized8"]
 	path = .vim/pack/bundle/start/vim-solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git
+[submodule ".vim/pack/bundle/opt/Nvim-R"]
+	path = .vim/pack/bundle/opt/Nvim-R
+	url = https://github.com/BertrandSim/Nvim-R.git
