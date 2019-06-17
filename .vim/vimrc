@@ -86,8 +86,8 @@ let g:UltiSnipsEditSplit='context'	" open snippets in a horizontal or vertical s
 packadd Nvim-R					" jalvesaq/Nvim-R --forked
 packadd vim-latex-1.10.0		" vim-latex or latex suite
   let g:tex_flavor='latex'		" ft of .tex files to 'tex', not 'plaintex'.
-packadd vim-angry-master		" function argument text object
-packadd auto-pairs-master		" jiangmiao/auto-pairs
+packadd vim-angry				" function argument text object
+packadd auto-pairs				" jiangmiao/auto-pairs
   augroup plugconfig
 	autocmd VimEnter * 
 		  \if exists('g:AutoPairsLoaded') && g:AutoPairsLoaded == 1
