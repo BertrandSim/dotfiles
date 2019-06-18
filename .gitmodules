@@ -13,3 +13,6 @@
 [submodule ".vim/pack/bundle/start/vim-markdown-folding"]
 	path = .vim/pack/bundle/start/vim-markdown-folding
 	url = https://github.com/BertrandSim/vim-markdown-folding
+[submodule ".vim/pack/bundle/start/vim-unimpaired"]
+	path = .vim/pack/bundle/start/vim-unimpaired
+	url = https://github.com/BertrandSim/vim-unimpaired.git
