@@ -385,14 +385,14 @@ function! RemoveComment()
 endfunction
 
 function! GetCommentLeader()
-  if exists(b:comment_leader)  " user defined
-    let commentstart = b:comment_leader
+  if exists("b:comment_leader")  " user defined
+	let commentstart = b:comment_leader
   elseif len(split(&commentstring, '%s')) == 1 
 	" if 'commentstring' xx%sxx contains no end part 
 	let commentstart = split(&commentstring, '%s')[0]
   elseif match(&comments, '\v(,|^):[^,:]*,')		
-	" if 'comment' contains ',:xxx,' 
-	let commentstart = matchstr(&comments, '\v(,|^):\zs[^,:]*\ze,')
+    " if 'comment' contains ',:xxx,' 
+    let commentstart = matchstr(&comments, '\v(,|^):\zs[^,:]*\ze,')
   else 
 	echoerr "unable to find comment leader."
   endif
