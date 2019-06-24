@@ -80,7 +80,7 @@ if has('packages')
   "	 lifepillar/vim-solarized8
   "	 tpope/vim-unimpaired
   "	 masukmoi/vim-markdown-folding
-  "	 SirVer/ultisnips-3.1
+  "	 SirVer/ultisnips			"-3.1 -> master
   "  tpope/vim-surround-2.1	" usr changed to use omap for ds,cs, etc.
 
   " packages in opt:
@@ -98,7 +98,7 @@ else
   set runtimepath+=~/.vim/pack/bundle/start/vim-unimpaired
   set runtimepath+=~/.vim/pack/bundle/start/vim-markdown-folding
   if (version >= 704)
-	set runtimepath+=~/.vim/pack/bundle/start/ultisnips-3.1
+	set runtimepath+=~/.vim/pack/bundle/start/ultisnips    " -3.1
   endif
   set runtimepath+=~/.vim/pack/bundle/start/vim-surround-2.1\ -\ usr
 

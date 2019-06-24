@@ -11,7 +11,12 @@ endif
 let b:did_autoload_ultisnips = 1
 
 " Also import vim as we expect it to be imported in many places.
-exec g:_uspy "import vim"
+exec g:_uspy "import vim" 
+
+" 2019-06-21 16:39:47 added line below as suggested from https://github.com/SirVer/ultisnips/issues/850
+exec g:_uspy "import sys; import os.path; sys.path.append(os.path.expanduser('~/.vim/bundle/ultisnips/pythonx/'))"
+" 2019-06-21 16:39:47 added line above
+
 exec g:_uspy "from UltiSnips import UltiSnips_Manager"
 
 function! s:compensate_for_pum()
