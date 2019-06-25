@@ -1,3 +1,8 @@
+# unneeded vimfiles
 .vim/.netrwhist
 .vim/.netrwhist~
 .vim/.viminfo
+
+# temporary files when edited by vim
+*.swp
+*.swo
