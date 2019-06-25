@@ -1,0 +1,21 @@
+# to use, put 
+#   if [-f ~/.bash_aliases ]; then 
+#	. ~/.bash_aliases
+#   fi
+# in the ~/.bashrc file
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ..1="cd .."
+alias ..2="cd ../.."
+alias ..3="cd ../../.."		# ..n = n levels up
+
+alias la='ls -A'		# list all files except . and ..		
+alias ll='ls -AlF'		# long format with */=>@|
+
+# colorize output when shown in terminal
+alias ls='ls --color=auto'	
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+# alias less='less -R'
