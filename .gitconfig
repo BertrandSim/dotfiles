@@ -6,29 +6,29 @@
   # ui = auto 
   ui = true 
 [color "status"]
-  ; added = green
-  ; changed = yellow
-  ; untracked = red
+  # added = green
+  # changed = yellow
+  # untracked = red
 [color "branch"]
 [color "diff"]
 [pull]
 [push]
-  ; default = current
+  # default = current
 [core]
   editor = vim
-  ; pager = less -FRSX
-  ; whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-  ; autocrlf = input
-  ; excludesfile = ~/.gitignore
+  # pager = less -FRSX
+  # whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  # autocrlf = input
+  # excludesfile = ~/.gitignore
 [diff]
   tool = vimdiff
 [difftool]
   prompt = false
 [github]
-  ; user = 
-  ; token = 
+  user = BertrandSim
+  # token = 
 [alias]
-  ; ci = commit
-  ; co = checkout
-  ; st = status -sb
-  ; lg = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
+  # ci = commit
+  # co = checkout
+  # st = status -sb
+  # lg = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
