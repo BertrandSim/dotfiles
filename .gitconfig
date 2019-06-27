@@ -1,34 +1,51 @@
+# global gitconfig
+
 [user]
   name = Bertrand Sim
-  # email = 
+  email = bertrand.sim@users.noreply.github.com
   # username = 
 [color]
-  # ui = auto 
-  ui = true 
-[color "status"]
-  # added = green
-  # changed = yellow
-  # untracked = red
-[color "branch"]
+  ui = auto
 [color "diff"]
-[pull]
-[push]
-  # default = current
+[color "status"]
+[color "branch"]
 [core]
-  editor = vim
+  editor = gvim
   # pager = less -FRSX
   # whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
   # autocrlf = input
+  # symlinks = false
   # excludesfile = ~/.gitignore
 [diff]
-  tool = vimdiff
+  tool = gvimdiff
 [difftool]
   prompt = false
 [github]
   user = BertrandSim
   # token = 
+[push]
+  default = current
+[filter "lfs"]
+# still not sure what these do
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [alias]
-  # ci = commit
-  # co = checkout
-  # st = status -sb
+  aliases = ! git config --get-regexp '^alias\\.'  # lists aliases
+  conf    = config
+  conf-l  = config --local
+  conf-g  = config --global
+  conf-s  = config --system
+  conf-f  = config --file
+  ad      = add
+  rs      = reset
+  df      = diff
+  dfc     = diff --cached
+  com     = commit
+  com-a   = commit --amend
+  cho     = checkout
+  br      = branch
+  st      = status
+  # sts = status -sb
   # lg = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
