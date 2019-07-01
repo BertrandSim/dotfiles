@@ -1,4 +1,4 @@
-" Last modified: 2019-06-27
+" Last modified: 2019-07-01
 " -------------------------
 " defaults from windows gvim 8.1 install {{{1
 " --------------------------------------
@@ -27,14 +27,18 @@
 "vmap <silent> <Plug>(MatchitVisualTextObject) <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)
 "onoremap <silent> <Plug>(MatchitOperationMultiForward) :call matchit#MultiMatch("W",  "o")
 "onoremap <silent> <Plug>(MatchitOperationMultiBackward) :call matchit#MultiMatch("bW", "o")
-"vnoremap <silent> <Plug>(MatchitVisualMultiForward) :call matchit#MultiMatch("W",	"n")m'gv``
-"vnoremap <silent> <Plug>(MatchitVisualMultiBackward) :call matchit#MultiMatch("bW", "n")m'gv``
+"vnoremap <silent> <Plug>(MatchitVisualMultiForward) :call matchit#MultiMatch("W",	"n")
+m'gv``
+"vnoremap <silent> <Plug>(MatchitVisualMultiBackward) :call matchit#MultiMatch("bW", "n")
+m'gv``
 "nnoremap <silent> <Plug>(MatchitNormalMultiForward) :call matchit#MultiMatch("W",	"n")
 "nnoremap <silent> <Plug>(MatchitNormalMultiBackward) :call matchit#MultiMatch("bW", "n")
 "onoremap <silent> <Plug>(MatchitOperationBackward) :call matchit#Match_wrapper('',0,'o')
 "onoremap <silent> <Plug>(MatchitOperationForward) :call matchit#Match_wrapper('',1,'o')
-"vnoremap <silent> <Plug>(MatchitVisualBackward) :call matchit#Match_wrapper('',0,'v')m'gv``
-"vnoremap <silent> <Plug>(MatchitVisualForward) :call matchit#Match_wrapper('',1,'v')m'gv``
+"vnoremap <silent> <Plug>(MatchitVisualBackward) :call matchit#Match_wrapper('',0,'v')
+m'gv``
+"vnoremap <silent> <Plug>(MatchitVisualForward) :call matchit#Match_wrapper('',1,'v')
+m'gv``
 "nnoremap <silent> <Plug>(MatchitNormalBackward) :call matchit#Match_wrapper('',0,'n')
 "nnoremap <silent> <Plug>(MatchitNormalForward) :call matchit#Match_wrapper('',1,'n')
 "vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
@@ -80,7 +84,7 @@ if has('packages')
   "	 lifepillar/vim-solarized8
   "	 tpope/vim-unimpaired
   "	 masukmoi/vim-markdown-folding
-  "	 SirVer/ultisnips-3.1
+  "	 SirVer/ultisnips
   "  tpope/vim-surround-2.1	" usr changed to use omap for ds,cs, etc.
 
   " packages in opt:
@@ -90,7 +94,6 @@ if has('packages')
   packadd auto-pairs       	" jiangmiao/auto-pairs
   packadd vim-easy-align   	" junegunn/vim-easy-align
 
-
 " elseif " using pathogen plugin manager,
 " execute pathogen#infect()
 
@@ -99,7 +102,7 @@ else
   set runtimepath+=~/.vim/pack/bundle/start/vim-unimpaired
   set runtimepath+=~/.vim/pack/bundle/start/vim-markdown-folding
   if (version >= 704)
-	set runtimepath+=~/.vim/pack/bundle/start/ultisnips-3.1
+	set runtimepath+=~/.vim/pack/bundle/start/ultisnips    " -3.1
   endif
   set runtimepath+=~/.vim/pack/bundle/start/vim-surround-2.1\ -\ usr
 
@@ -110,6 +113,7 @@ else
   set runtimepath+=~/.vim/pack/bundle/opt/vim-latex-1.10.0
   set runtimepath+=~/.vim/pack/bundle/opt/vim-angry
   set runtimepath+=~/.vim/pack/bundle/opt/auto-pairs
+  set runtimepath+=~/.vim/pack/bundle/opt/vim-easy-align
 
 
 endif
@@ -344,6 +348,7 @@ augroup qcomment
   autocmd FileType autohotkey		let b:comment_leader = '; '
   autocmd FileType vim				let b:comment_leader = '" '
   autocmd FileType snippets			let b:comment_leader = '# '
+  autocmd FileType gitconfig		let b:comment_leader = '# '
 augroup END
 
 
