@@ -1,4 +1,4 @@
-" Last modified: 2019-06-14
+" Last modified: 2019-07-01
 " -------------------------
 " defaults from windows gvim 8.1 install {{{1
 " --------------------------------------
@@ -27,14 +27,18 @@
 "vmap <silent> <Plug>(MatchitVisualTextObject) <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)
 "onoremap <silent> <Plug>(MatchitOperationMultiForward) :call matchit#MultiMatch("W",  "o")
 "onoremap <silent> <Plug>(MatchitOperationMultiBackward) :call matchit#MultiMatch("bW", "o")
-"vnoremap <silent> <Plug>(MatchitVisualMultiForward) :call matchit#MultiMatch("W",	"n")m'gv``
-"vnoremap <silent> <Plug>(MatchitVisualMultiBackward) :call matchit#MultiMatch("bW", "n")m'gv``
+"vnoremap <silent> <Plug>(MatchitVisualMultiForward) :call matchit#MultiMatch("W",	"n")
+m'gv``
+"vnoremap <silent> <Plug>(MatchitVisualMultiBackward) :call matchit#MultiMatch("bW", "n")
+m'gv``
 "nnoremap <silent> <Plug>(MatchitNormalMultiForward) :call matchit#MultiMatch("W",	"n")
 "nnoremap <silent> <Plug>(MatchitNormalMultiBackward) :call matchit#MultiMatch("bW", "n")
 "onoremap <silent> <Plug>(MatchitOperationBackward) :call matchit#Match_wrapper('',0,'o')
 "onoremap <silent> <Plug>(MatchitOperationForward) :call matchit#Match_wrapper('',1,'o')
-"vnoremap <silent> <Plug>(MatchitVisualBackward) :call matchit#Match_wrapper('',0,'v')m'gv``
-"vnoremap <silent> <Plug>(MatchitVisualForward) :call matchit#Match_wrapper('',1,'v')m'gv``
+"vnoremap <silent> <Plug>(MatchitVisualBackward) :call matchit#Match_wrapper('',0,'v')
+m'gv``
+"vnoremap <silent> <Plug>(MatchitVisualForward) :call matchit#Match_wrapper('',1,'v')
+m'gv``
 "nnoremap <silent> <Plug>(MatchitNormalBackward) :call matchit#Match_wrapper('',0,'n')
 "nnoremap <silent> <Plug>(MatchitNormalForward) :call matchit#Match_wrapper('',1,'n')
 "vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
@@ -76,22 +80,22 @@ set fileencoding=utf-8	" The encoding written to file.
 if has('packages')
 " using built-in package manager
 
-  " packages in start: 
+  " packages in start:
   "	 lifepillar/vim-solarized8
   "	 tpope/vim-unimpaired
   "	 masukmoi/vim-markdown-folding
-  "	 SirVer/ultisnips			"-3.1 -> master
+  "	 SirVer/ultisnips
   "  tpope/vim-surround-2.1	" usr changed to use omap for ds,cs, etc.
 
   " packages in opt:
-  packadd Nvim-R					" jalvesaq/Nvim-R --forked
-  packadd vim-latex-1.10.0		" vim-latex or latex suite
-  packadd vim-angry				" function argument text object
-  packadd auto-pairs				" jiangmiao/auto-pairs
-  packadd vim-easy-align		" junegunn/vim-easy-align
+  packadd Nvim-R           	" jalvesaq/Nvim-R --forked
+  packadd vim-latex-1.10.0 	" vim-latex or latex suite
+  packadd vim-angry        	" function argument text object
+  packadd auto-pairs       	" jiangmiao/auto-pairs
+  packadd vim-easy-align   	" junegunn/vim-easy-align
 
 " elseif " using pathogen plugin manager,
-" execute pathogen#infect() 
+" execute pathogen#infect()
 
 else
   set runtimepath+=~/.vim/pack/bundle/start/vim-solarized8
@@ -103,7 +107,7 @@ else
   set runtimepath+=~/.vim/pack/bundle/start/vim-surround-2.1\ -\ usr
 
 
-  if has('patch-8.0.0946') | 
+  if has('patch-8.0.0946')
 	set runtimepath+=~/.vim/pack/bundle/opt/Nvim-R
   endif
   set runtimepath+=~/.vim/pack/bundle/opt/vim-latex-1.10.0
@@ -126,15 +130,23 @@ augroup plugconfig
 		\|endif
 augroup END
 
+" mappings for easy align plugin
+if exists("g:loaded_easy_align_plugin")
+  nmap ga <Plug>(EasyAlign)
+  xmap ga <Plug>(EasyAlign)
+  nmap gA <Plug>(LiveEasyAlign)
+  xmap gA <Plug>(LiveEasyAlign)
+endif
+
 " Nvim-R config {{{1
 " -------------
 let R_esc_term = 0
 " let <Esc> function as expected in a R console / terminal
 " Note: to interrupt a '+' prompt in a console, use ^C instead.
 
-" let R_assign = 2 	" type two _'s to get <- 
-let R_assign = 0	" disable shortcut for <-. 
-" See filetype specifics/Rcode/inoremap for the replacement. 
+" let R_assign = 2 	" type two _'s to get <-
+let R_assign = 0	" disable shortcut for <-.
+" See filetype specifics/Rcode/inoremap for the replacement.
 
 " run RStudio console instead of R console :)
 " let R_in_buffer = 0
@@ -146,11 +158,11 @@ let R_rconsole_height = 15	" num lines in rconsole window
 let rout_follow_colorscheme = 1		" highlight R output in current colorscheme
 
 " UI {{{1
-" ------------------- 
+" -------------------
 if v:version > 703 "version 7.3 or newer
   " show (absolute) current line number and relative numbers for the other lines
-  set number relativenumber 
-else 
+  set number relativenumber
+else
   " show (absolute) line numbers
   set number
 endif
@@ -202,8 +214,8 @@ endif
 augroup gvimm
   autocmd!
   autocmd VimEnter * 
-	  \if has('gui_running')  
-	  \  | set guifont=Consolas:h12:cANSI:qDRAFT 
+	  \if has('gui_running')
+	  \  | set guifont=Consolas:h12:cANSI:qDRAFT
 	  \  | set lines=30 columns=120
 	  \|endif
 augroup END
@@ -229,9 +241,9 @@ nnoremap <leader><space> :nohlsearch<CR>
 " set nosmarttab		" disabled. If on, TAB adds a shiftwidth at the start of a line, and a softtabstop elsewhere
 
 set tabstop=8			" number of visual spaces per TABstop
-set softtabstop=0		" number of spaces inserted per TAB when editing (eg. in insert mode)
+set softtabstop=0		" number of spaces inserted per TAB when editing (eg. in insert mode) " to be the same as tabstop
 set shiftwidth=2		" number of spaces for an indent
-set noexpandtab			" Tabstops are expanded to spaces
+set noexpandtab			" Tabstops are not expanded to spaces
 set smarttab			" TAB adds a shiftwidth at the start of a line, and a softtabstop elsewhere
 
 " whitespace and eol {{{1
@@ -293,8 +305,8 @@ nnoremap <C-p> @="O\ej"<CR>
 
 " use a count with 'o' or 'O' to specify how many lines to open
 nnoremap <expr> o '<Esc>o' . repeat('<CR>', v:count1 - 1)
-nnoremap <expr> O '<Esc>O' . repeat('<CR>', v:count1 - 1) . repeat('<Up>', v:count1 - 1) 
-" [N]O is not . repeatable 
+nnoremap <expr> O '<Esc>O' . repeat('<CR>', v:count1 - 1) . repeat('<Up>', v:count1 - 1)
+" [N]O is not . repeatable
 
 " in insert mode, <BS> ^W etc. is able to delete indents, newlines, 
 " and past the starting place of insertion
@@ -315,19 +327,18 @@ set backspace=indent,eol,start
   " inoremap { {}<Left>
 " endif
 
-" replaced with autopairs plugin (for now)... 
- 
+" replaced with autopairs plugin (for now)...
+
 "
 " quick comment {{{1
 " -------------
 
 " comment_leader can be specified by user, or extracted from 'commentstring' or 'comment' options.
-" [TODO] convert RemoveComment(), AddBlockComment() to an operator
 " [TODO] use SID for functions
 " [TODO] migrate to a plugin
 
 
-augroup qcomment		
+augroup qcomment
   autocmd!
   autocmd FileType c,cpp,java,scala	let b:comment_leader = '// '
   autocmd FileType sh,python,r		let b:comment_leader = '# '
@@ -341,25 +352,32 @@ augroup qcomment
 augroup END
 
 
-nmap <leader>c <Plug>AddComment
-vmap <leader>c <Plug>VAddComment
+nmap <leader>c <Plug>(AddComment)
+nmap <leader>x <Plug>(RmComment)
+nmap <leader>bc <Plug>(AddBlockComment)
+nmap <leader>bx <Plug>(RmBlockComment)
+vmap <leader>c <Plug>(VAddComment)
+vmap <leader>x <Plug>(VRmComment)
+vmap <leader>bc <Plug>(VAddBlockComment)
+" vmap <leader>bx <Plug>(VRmBlockComment)
 
-nnoremap <silent> <Plug>AddComment :<C-U>set opfunc=AddCommentOp<CR>g@
-vnoremap <silent> <Plug>VAddComment :<C-U>call AddCommentOp(visualmode())<CR>
+nnoremap <silent> <Plug>(AddComment) :<C-U>set opfunc=AddCommentOp<CR>g@
+nnoremap <silent> <Plug>(RmComment) :<C-U>set opfunc=RemoveCommentOp<CR>g@
+nnoremap <silent> <Plug>(AddBlockComment) :<C-U>set opfunc=AddBlockCommentOp<CR>g@
+" nnoremap <silent> <Plug>(RmBlockComment) :<C-U>set opfunc=RemoveCommentOp<CR>g@
+vnoremap <silent> <Plug>(VAddComment) :<C-U>call AddCommentOp(visualmode())<CR>
+vnoremap <silent> <Plug>(VRmComment) :<C-U>call RemoveCommentOp(visualmode())<CR>
+vnoremap <silent> <Plug>(VAddBlockComment) :<C-U>call AddBlockCommentOp(visualmode())<CR>
+" vnoremap <silent> <Plug>(VRmBlockComment) :<C-U>call RemoveCommentOp(visualmode())<CR>
 
 
 
-
-nnoremap <silent> <leader>x :call RemoveComment()<CR>
-vnoremap <silent> <leader>x :call RemoveComment()<CR>
-
-vnoremap <silent> <leader>bc :<C-u>call AddBlockComment(visualmode())<CR>
 nnoremap <silent> <leader>bx :<C-u>call RemoveBlockComment()<CR>
 vnoremap <silent> <leader>bx :<C-u>call RemoveBlockComment()<CR>
 
 function! AddCommentOp(type)
   let comleader = GetCommentLeader()
-  
+
   if a:type ==# 'char' || a:type ==# 'line' || a:type ==# 'block'
 	let startline = line("'[")
 	let endline   = line("']")
@@ -371,17 +389,31 @@ function! AddCommentOp(type)
   let minindent = GetMinIndent( range(startline, endline) )
   let minsw = minindent / shiftwidth()   " min shiftwidth, integer division
 
-  execute "silent" . startline.','.endline . repeat('<', minsw) 
-  execute "silent" . startline.','.endline . 'normal 0i'.comleader."\<Esc>" 
-  execute "silent" . startline.','.endline . repeat('>', minsw) 
+  execute "silent" . startline.','.endline . repeat('<', minsw)
+  execute "silent" . startline.','.endline . 'normal 0i'.comleader."\<Esc>"
+  execute "silent" . startline.','.endline . repeat('>', minsw)
 
   nohlsearch
 endfunction
 
-function! RemoveComment()
+
+function! RemoveCommentOp(type)
+  if a:type ==# 'char' || a:type ==# 'line' || a:type ==# 'block'
+    let startline = line("'[")
+	let endline   = line("']")
+  else "if a:type ==# 'v' || a:type ==# 'V' || a:type ==# ''
+	let startline = line("'<")
+	let endline   = line("'>")
+  endif
+
+  call RemoveComment(startline, endline)
+
+endfunction
+
+function! RemoveComment(startline, endline)
   let comleader = GetCommentLeader()
-  execute 'substitute' . '/' . 
-	\ '\v(^\s*)' . escape(comleader,'\/') . '/' . 
+  execute a:startline . ',' a:endline . 'substitute' . '/' .
+	\ '\v(^\s*)' . escape(comleader,'\/') . '/' .
 	\ '\1' . '/e'
   nohlsearch
 endfunction
@@ -389,16 +421,16 @@ endfunction
 function! GetCommentLeader()
   if exists("b:comment_leader")  " user defined
 	let commentstart = b:comment_leader
-  elseif len(split(&commentstring, '%s')) == 1 
-	" if 'commentstring' xx%sxx contains no end part 
+  elseif len(split(&commentstring, '%s')) == 1
+	" if 'commentstring' xx%sxx contains no end part
 	let commentstart = split(&commentstring, '%s')[0]
-  elseif match(&comments, '\v(,|^):[^,:]*,')		
-    " if 'comment' contains ',:xxx,' 
+  elseif match(&comments, '\v(,|^):[^,:]*,')
+    " if 'comment' contains ',:xxx,'
     let commentstart = matchstr(&comments, '\v(,|^):\zs[^,:]*\ze,')
-  else 
+  else
 	echoerr "unable to find comment leader."
   endif
-  
+
   let commentstart = AppendSpace( commentstart )
   return commentstart
 endfunction
@@ -414,16 +446,16 @@ function! GetMinIndent(range)
 	  if !IsBlankLine(lnum)
 		let minIndent = indent(lnum)
 		let foundNonBlank = 1
-	  elseif lnum == a:range[-1]  
+	  elseif lnum == a:range[-1]
 	  " ie. if last line and all other lines blank
 		return 0
 	  endif
-	  
+
 	elseif !IsBlankLine(lnum) && indent(lnum) < minIndent
 	  let minIndent = indent(lnum)
 
 	endif
-    
+
   endfor
 
   return minIndent
@@ -436,13 +468,33 @@ function! IsBlankLine(lnum)
 endfunction
 
 
-function! AddBlockComment(type)
+function! AddBlockCommentOp(type)
   let [comstart, comend] = GetBlockCommentMarks()
-  if a:type ==# 'v'	" character wise 
-	exec 'normal' . '`>'. 'a'.comend."\<Esc>" . '`<' .'i'.comstart."\<Esc>" . '`<'
-  elseif a:type ==# 'V'	" linewise
-	exec 'normal' . '`>'. 'o'.comend."\<Esc>" . '`<' .'O'.comstart."\<Esc>" . '`<'
+  let [markstart, markend] = GetOpMarks(a:type)
+
+  " get position / coordinates of start/end marks
+  " getpos() only allows 'x, not `x
+  let opstart = getpos(substitute(markstart,"`","'",""))
+  let opend   = getpos(substitute(markend,  "`","'",""))
+
+  if a:type ==# 'char' || a:type ==# 'v'
+	" character wise
+	exec 'normal' . markend . 'a'.comend."\<Esc>"
+	call setpos( substitute(markstart,"`","'",""), opstart)		" to recall `[ position ; setpos() only allows 'x, not `x
+	exec 'normal' . markstart .'i'.comstart."\<Esc>" . markstart
+  elseif a:type ==# 'line' || a:type ==# 'V'
+	" linewise
+	exec 'normal' . markend . 'o'.comend."\<Esc>"
+	call setpos( markstart, opstart)
+	exec 'normal' . markstart .'O'.comstart."\<Esc>" . markstart
   endif
+
+  " idea of the above (in visual mode):
+  " if a:type ==# 'v'	" character wise
+  "   exec 'normal' . '`>'. 'a'.comend."\<Esc>" . '`<' .'i'.comstart."\<Esc>" . '`<'
+  " elseif a:type ==# 'V'	" linewise
+  "   exec 'normal' . '`>'. 'o'.comend."\<Esc>" . '`<' .'O'.comstart."\<Esc>" . '`<'
+  " endif
 endfunction
 
 function! RemoveBlockComment()
@@ -457,7 +509,7 @@ function! RemoveBlockComment()
   let endpos   = searchpairpos('\V'.escape(comstart,'/'), '', '\V'.escape(comend,'\'),  'nW')
   " echo 'endpos: '   . string(endpos)
 
-  if startpos != [0,0] && endpos != [0,0]   
+  if startpos != [0,0] && endpos != [0,0]
   " ie. block comment markers found
 	let curcurpos = getcurpos()
 
@@ -472,18 +524,18 @@ function! RemoveBlockComment()
 	let curcurpos[4] = 0	" remove curswant
 	" echo string(curcurpos)
 	call setpos('.', curcurpos)
-  endif 
+  endif
 
 endfunction
 
 
 function! GetBlockCommentMarks()
-  if len(split(&commentstring, '%s')) == 2 
-	" if 'commentstring' xx%sxx contains start and end part 
+  if len(split(&commentstring, '%s')) == 2
+	" if 'commentstring' xx%sxx contains start and end part
 	let commentstartend = split(&commentstring, '%s')
 	let commentstart = commentstartend[0]
 	let commentend   = commentstartend[1]
-	
+
 	return [commentstart, commentend]
   endif
   echoerr "Unable to find block comment syntax markers."
@@ -500,6 +552,21 @@ function AppendSpace(str)
   endif
   return outstr
 endfunction
+
+function! GetOpMarks(type)
+  " returns [start, end] `marks' of operator action
+  if     a:type ==# 'char'	" character wise
+	let [_start, _end] = [ "`[", "`]" ]
+  elseif a:type ==# 'line'	" linewise
+	let [_start, _end] = [ "'[", "']" ]
+  elseif a:type ==# "v"	" character wise
+	let [_start, _end] = [ "`<", "`>" ]
+  elseif a:type ==# 'V'	" linewise
+	let [_start, _end] = [ "'<", "'>" ]
+  endif
+  return [_start, _end]
+endfunction
+
 
 " v1: the idea
 " noremap <silent> <leader>cc 
@@ -523,7 +590,7 @@ nnoremap z<Space> za
 " \zo to open _o_nly current fold (close all folds)
 nnoremap <leader>zo zMzv
 
-" filetype specifics {{{1 
+" filetype specifics {{{1
 " ------------------
 filetype plugin indent on
 " turns on filetype detection, and loads filetype-specific plugins and indent files
@@ -532,7 +599,7 @@ filetype plugin indent on
 " augroup ft_md
   " autocmd!
   " Use nested instead of flat folding for markdown files. (Toggle with :FoldToggle)
-  " autocmd Filetype markdown set foldexpr=NestedMarkdownFolds() 
+  " autocmd Filetype markdown set foldexpr=NestedMarkdownFolds()
 " augroup END
 
 augroup ft_vim
@@ -553,7 +620,7 @@ augroup ft_r
   autocmd Filetype r setlocal ts=8 sts=0 sw=2 noet sta  " default tabstop, indent by 2 spaces
   " autocmd Filetype r setlocal shiftwidth=2 tabstop=2 softtabstop=0, expandtab nosmarttab	" tabs and indents are 2 spaces
 
-  " quick assignment <- 
+  " quick assignment <-
   " autocmd Filetype r inoremap <buffer> __ <-
   " replaced by ultisnips
   " see also Nvim-R's R_assign.
@@ -562,7 +629,10 @@ augroup ft_r
   " autocmd Filetype r inoremap <buffer> >> %>%
   " replaced by ultisnips
 
-  " code folding, using native vim's syntax / Nvim-R 
+  " use forward slash '/' when expanding filepaths
+  autocmd Filetype r setlocal shellslash
+
+  " code folding, using native vim's syntax / Nvim-R
   autocmd Filetype r setlocal foldmethod=syntax
   " let r_syntax_folding=1
   let r_syntax_brace_folding=1
@@ -634,12 +704,12 @@ command! -bang WQ wq<bang>
 " Copies cur line or visual selection,
 " comments the copied lines above, 
 " positions cursor at the copy below
-nmap <F7> YP<leader>c_j
-vmap <silent> <F7> :copy '><CR>gv<leader>c
+nmap <F7> YP<Plug>(AddComment)_j
+vmap <silent> <F7> :copy '><CR>gv<Plug>(VAddComment)
 	  \:call cursor( line("'>") + 1, 0 )<CR>
 
 
-" misc {{{1 
+" misc {{{1
 " ----
 if has('patch-7.4.793')
   set belloff=all " turn off audio error bells
