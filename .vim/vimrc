@@ -88,7 +88,7 @@ if has('packages')
   packadd vim-latex-1.10.0		" vim-latex or latex suite
   packadd vim-angry				" function argument text object
   packadd auto-pairs				" jiangmiao/auto-pairs
-
+  packadd vim-easy-align		" junegunn/vim-easy-align
 
 " elseif " using pathogen plugin manager,
 " execute pathogen#infect() 
@@ -109,6 +109,7 @@ else
   set runtimepath+=~/.vim/pack/bundle/opt/vim-latex-1.10.0
   set runtimepath+=~/.vim/pack/bundle/opt/vim-angry
   set runtimepath+=~/.vim/pack/bundle/opt/auto-pairs
+  set runtimepath+=~/.vim/pack/bundle/opt/vim-easy-align
 
 
 endif

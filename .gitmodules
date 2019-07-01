@@ -19,3 +19,6 @@
 [submodule ".vim/pack/bundle/start/ultisnips"]
 	path = .vim/pack/bundle/start/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule ".vim/pack/bundle/opt/vim-easy-align"]
+	path = .vim/pack/bundle/opt/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
