@@ -8,14 +8,13 @@ endsnippet
 
 # trigger with `fun` or `fn`
 snippet "fu?n" "function" r
-function(${1:args}) \{
-	${2:${VISUAL:#body}}
+function(${1}) \{
+	${2:${VISUAL:}}
 \}
-$0
 endsnippet
 
 snippet ret "return" 
-return( ${1:${VISUAL}} )$0
+return( ${1:${VISUAL}} )
 endsnippet
 
 
@@ -25,14 +24,12 @@ snippet for "for loop"
 for ($1) {
 	${2:${VISUAL}}
 }
-$0
 endsnippet
 
 snippet while "while loop"
 while ($1) {
 	${2:${VISUAL}}
 }
-$0
 endsnippet
 
 snippet ifel "if .. else"
@@ -41,28 +38,24 @@ if ($1) {
 } else {
 	$3
 }
-$0	
 endsnippet
 
 snippet if "if block"
 if ($1) {
 	${2:${VISUAL}}
 }
-$0
 endsnippet
 
 snippet elif "else if block"
 else if ($1) {
 	${2:${VISUAL}}
 }
-$0
 endsnippet
 
 snippet else "else block"
 else ($1) {
 	${2:${VISUAL}}
 }
-$0
 endsnippet
 
 
