@@ -42,6 +42,9 @@
   rs      = reset
   df      = diff
   dfc     = diff --cached
+  dt      = difftool
+  dtc     = difftool --cached
+  fe      = fetch
   com     = commit
   com-a   = commit --amend
   cho     = checkout
