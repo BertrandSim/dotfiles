@@ -220,6 +220,15 @@ augroup gvimm
 	  \|endif
 augroup END
 
+if has('gui_running')
+  if has('win64') || has('win32')
+	set winaltkeys=no
+	" don't use ALT to access the gui menu
+	" use :simalt instead.
+  endif
+endif
+
+
 " Transparency for gvim on windows os
 " requires vimtweak.dll to be installed in the folder containing vim.exe
 if has('gui_running')
@@ -270,6 +279,7 @@ if has('gui_running')
   endif
 
 endif
+
 " search options {{{1
 " -------------------
 set incsearch		" jump to first search as characters are entered
