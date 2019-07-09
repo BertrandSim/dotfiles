@@ -1,4 +1,4 @@
-" Last modified: 2019-07-04
+" Last modified: 2019-07-09
 " -------------------------
 " defaults from windows gvim 8.1 install {{{1
 " --------------------------------------
@@ -70,6 +70,10 @@ m'gv``
 " ---------
 
 set nocompatible
+
+filetype plugin indent on
+" turns on filetype detection, and loads filetype-specific plugins and indent files
+" see :help filetype-overview
 
 set encoding=utf-8		" The encoding displayed.
 set fileencoding=utf-8	" The encoding written to file.
@@ -640,59 +644,16 @@ nnoremap z<Space> za
 " \zo to open _o_nly current fold (close all folds)
 nnoremap <leader>zo zMzv
 
-" filetype specifics {{{1
-" ------------------
-filetype plugin indent on
-" turns on filetype detection, and loads filetype-specific plugins and indent files
-" see :help filetype-overview
+" R code folding {{{1
+" To sort it out
+" --------------
+" code folding, using native vim's syntax / Nvim-R
+setlocal foldmethod=syntax
+" let r_syntax_folding=1
+let r_syntax_brace_folding=1
+" or using custom fold expr instead... via plugin [TODO]
+" setlocal foldmethod=expr
 
-" augroup ft_md
-  " autocmd!
-  " Use nested instead of flat folding for markdown files. (Toggle with :FoldToggle)
-  " autocmd Filetype markdown set foldexpr=NestedMarkdownFolds()
-" augroup END
-
-augroup ft_vim
-  autocmd!
-  " don't autowrap comments onto newline, or insert comment leader when using o or O.
-  autocmd Filetype vim setlocal formatoptions-=c formatoptions-=o
-augroup END
-
-augroup ft_snippets
-  autocmd!
-  autocmd Filetype snippets setlocal ts=4 sts=0 sw=0 noet
-augroup END
-
-" R code {{{2
-" ------
-augroup ft_r
-  autocmd!
-  autocmd Filetype r setlocal ts=8 sts=0 sw=2 noet sta  " default tabstop, indent by 2 spaces
-  " autocmd Filetype r setlocal shiftwidth=2 tabstop=2 softtabstop=0, expandtab nosmarttab	" tabs and indents are 2 spaces
-
-  " quick assignment <-
-  " autocmd Filetype r inoremap <buffer> __ <-
-  " replaced by ultisnips
-  " see also Nvim-R's R_assign.
-
-  " quick piping %>%
-  " autocmd Filetype r inoremap <buffer> >> %>%
-  " replaced by ultisnips
-
-  " use forward slash '/' when expanding filepaths
-  autocmd Filetype r setlocal shellslash
-
-  " code folding, using native vim's syntax / Nvim-R
-  autocmd Filetype r setlocal foldmethod=syntax
-  " let r_syntax_folding=1
-  let r_syntax_brace_folding=1
-  " or using custom fold expr instead... via plugin [TODO]
-  " autocmd Filetype r setlocal foldmethod=expr
-
-  " add comment leader when pressing <CR>, allow autoformat with gq, 
-  " don't automatically break lines, remove comment leader when joining lines
-  autocmd Filetype r setlocal formatoptions=rqlj
-augroup END
 
 
 " terminal {{{1
