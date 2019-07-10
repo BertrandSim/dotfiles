@@ -32,7 +32,9 @@
   process = git-lfs filter-process
   required = true
 [alias]
-  aliases = ! git config --get-regexp '^alias\\.'  # lists aliases
+  alias-c = ! git config --get-regexp '^alias\\.'  # lists aliases
+  alias   = ! git config --get-regexp '^alias\\.' | sed -e s/^alias\\.//  -e s/\\ /\\ \\=\\ /   # in 'abbr = cmd' format
+  alias-s = ! git alias | sort   # in 'abbr = cmd' format, sorted alphabetically 
   conf    = config
   conf-l  = config --local
   conf-g  = config --global
@@ -52,3 +54,4 @@
   st      = status
   # sts = status -sb
   # lg = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
+  # lga = log --graph -- decorate --name-status --all
