@@ -74,6 +74,11 @@ set nocompatible
 set encoding=utf-8		" The encoding displayed.
 set fileencoding=utf-8	" The encoding written to file.
 
+" File formats {{{1
+" ------------
+" set fileformat=unix
+set fileformats=unix,dos
+
 " plugins {{{1
 " --------
 
@@ -715,7 +720,11 @@ if has('terminal')
   " ... and back to terminal job mode
   augroup termm
 	autocmd!
-	autocmd TerminalOpen * if &buftype ==# 'terminal' | nnoremap <buffer> <F2> i| endif
+	if (v:version >= 801)
+	  autocmd TerminalOpen * if &buftype ==# 'terminal' | nnoremap <buffer> <F2> i| endif
+	else
+	  autocmd BufWinEnter *  if &buftype ==# 'terminal' | nnoremap <buffer> <F2> i| endif
+	endif
   augroup END
 
   " ^r to insert register (^w" in terminal job mode)
@@ -781,4 +790,4 @@ set diffopt+=vertical	  " when starting diffmode, use vertical splits by default
 " ----------------------------------
 set modelines=2
 " vim: filetype=vim ts=4 sw=2 sts=4 noet sta
-" vim: foldmethod=marker foldlevel=0 ff=unix
+" vim: foldmethod=marker foldlevel=0 fileformat=unix
