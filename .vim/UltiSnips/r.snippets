@@ -17,6 +17,10 @@ snippet ret "return"
 return( ${1:${VISUAL}} )
 endsnippet
 
+snippet so "source" b
+source(${2:"./$1"})
+endsnippet
+
 
 # control flow {{{1 
 
@@ -53,8 +57,8 @@ else if ($1) {
 endsnippet
 
 snippet else "else block"
-else ($1) {
-	${2:${VISUAL}}
+else {
+	${1:${VISUAL}}
 }
 endsnippet
 
