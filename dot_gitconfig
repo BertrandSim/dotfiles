@@ -11,9 +11,9 @@
 [color "branch"]
 [core]
   editor = gvim
+  autocrlf = input 	# convert crlf to lf when adding, commiting
   # pager = less -FRSX
   # whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-  # autocrlf = input
   # symlinks = false
   # excludesfile = ~/.gitignore
 [diff]
