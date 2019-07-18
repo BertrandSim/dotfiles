@@ -6,3 +6,6 @@ dot_vim/.viminfo
 # temporary files when edited by vim
 *.swp
 *.swo
+
+#vim helptags
+dot_vim/**/doc/tags
