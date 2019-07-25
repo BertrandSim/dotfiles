@@ -55,8 +55,10 @@
   com     = commit
   com-a   = commit --amend
   cho     = checkout
+  met     = mergetool
   br      = branch
   st      = status
   # sts = status -sb
+  lgo     = log --oneline
   # lg = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
   # lga = log --graph -- decorate --name-status --all
