@@ -22,3 +22,6 @@
 [submodule ".vim/pack/bundle/opt/vim-easy-align"]
 	path = dot_vim/pack/bundle/opt/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
+[submodule "dot_vim/pack/bundle/opt/vimtex"]
+	path = dot_vim/pack/bundle/opt/vimtex
+	url = https://github.com/lervag/vimtex.git
