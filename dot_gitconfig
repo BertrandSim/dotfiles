@@ -52,10 +52,12 @@
   dt      = difftool
   dtc     = difftool --cached
   fe      = fetch
+  met     = mergetool
+  subm    = submodule
+  subm-u  = submodule update
   com     = commit
   com-a   = commit --amend
   cho     = checkout
-  met     = mergetool
   br      = branch
   st      = status
   # sts = status -sb
