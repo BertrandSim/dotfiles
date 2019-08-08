@@ -28,3 +28,6 @@
 [submodule "dot_vim/pack/text-obj/opt/vim-textobj-line"]
 	path = dot_vim/pack/text-obj/opt/vim-textobj-line
 	url = https://github.com/kana/vim-textobj-line.git
+[submodule "dot_vim/pack/bundle/opt/vimtex"]
+	path = dot_vim/pack/bundle/opt/vimtex
+	url = https://github.com/lervag/vimtex.git

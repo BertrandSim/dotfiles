@@ -78,6 +78,10 @@ filetype plugin indent on
 set encoding=utf-8		" The encoding displayed.
 set fileencoding=utf-8	" The encoding written to file.
 
+filetype plugin indent on
+" turns on filetype detection, and loads filetype-specific plugins and indent files
+" see :help filetype-overview
+
 " File formats {{{1
 " ------------
 " set fileformat=unix
@@ -98,13 +102,14 @@ if has('packages')
 
   " packages in opt:
   packadd Nvim-R           	" jalvesaq/Nvim-R --forked
-  packadd vim-latex-1.10.0 	" vim-latex or latex suite
+  " packadd vim-latex-1.10.0 	" vim-latex or latex suite
   packadd vim-angry        	" function argument text object
   packadd auto-pairs       	" jiangmiao/auto-pairs
   packadd vim-easy-align   	" junegunn/vim-easy-align
   packadd vim-textobj-user-0.7.6	"kana/text-obj-user
-	packadd vim-textobj-entire
-	packadd vim-textobj-line
+	  packadd vim-textobj-entire
+	  packadd vim-textobj-line
+  packadd vimtex			" lervag/vimtex
 
 " elseif " using pathogen plugin manager,
 " execute pathogen#infect()
@@ -122,7 +127,7 @@ else
   if has('patch-8.0.0946')
 	set runtimepath+=~/.vim/pack/bundle/opt/Nvim-R
   endif
-  set runtimepath+=~/.vim/pack/bundle/opt/vim-latex-1.10.0
+  " set runtimepath+=~/.vim/pack/bundle/opt/vim-latex-1.10.0
   set runtimepath+=~/.vim/pack/bundle/opt/vim-angry
   set runtimepath+=~/.vim/pack/bundle/opt/auto-pairs
   set runtimepath+=~/.vim/pack/bundle/opt/vim-easy-align
@@ -130,6 +135,9 @@ else
 	set runtimepath+=~/.vim/pack/bundle/opt/vim-textobj-user-0.7.6
 	set runtimepath+=~/.vim/pack/text-obj/opt/vim-textobj-entire
 	set runtimepath+=~/.vim/pack/text-obj/opt/vim-textobj-line
+  endif
+  if has('patch-7.4.52')
+    set runtimepath+=~/.vim/pack/bundle/opt/vimtex
   endif
 
 
@@ -153,6 +161,26 @@ if exists("g:loaded_easy_align_plugin")
   nmap gA <Plug>(LiveEasyAlign)
   xmap gA <Plug>(LiveEasyAlign)
 endif
+
+
+" vimtex settings
+
+" use Sumatra as pdfviewer
+let g:vimtex_view_general_viewer = 'SumatraPDF'
+" setup forward and backward search
+let g:vimtex_view_general_options
+	  \ = '-reuse-instance -forward-search @tex @line @pdf'
+	  \ . ' -inverse-search "gvim --servername ' . v:servername
+	  \ . ' --remote-send \"^<C-\^>^<C-n^>'
+	  \ . ':drop \%f^<CR^>:\%l^<CR^>:normal\! zzzv^<CR^>'
+	  \ . ':execute ''drop '' . fnameescape(''\%f'')^<CR^>'
+	  \ . ':\%l^<CR^>:normal\! zzzv^<CR^>'
+	  \ . ':call remote_foreground('''.v:servername.''')^<CR^>^<CR^>\""'
+let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+
+
+
+
 
 " Nvim-R config {{{1
 " -------------
@@ -685,6 +713,32 @@ nnoremap z<Space> za
 nnoremap <leader>zo zMzv
 " \zO to _O_pen current fold, and other nested folds 
 nnoremap <leader>zO zMzO
+
+" tex delims [TODO] {{{1
+" ------------------
+
+" augroup ft_tex
+"   autocmd!
+"   " swap [ and {
+"   autocmd Filetype tex
+"    \ if exists("g:AutoPairsLoaded")
+" 	 \| inoremap <buffer> [ <C-R>=AutoPairsInsert('{')<CR>
+" 	 \| inoremap <buffer> ] <C-R>=AutoPairsInsert('}')<CR>
+" 	 \| inoremap <buffer> { <C-R>=AutoPairsInsert('[')<CR>
+" 	 \| inoremap <buffer> } <C-R>=AutoPairsInsert(']')<CR>
+"    \| else
+" 	 \| inoremap <buffer> [ {
+" 	 \| inoremap <buffer> ] }
+" 	 \| inoremap <buffer> { [
+" 	 \| inoremap <buffer> } ]
+"    \| endif
+"   " add \(, \[, \{ pairs
+"   " but does not trigger after typing '\(', as it starts with \ .
+"   autocmd Filetype tex 
+"     \ if exists ("g:AutoPairsLoaded")
+"   	\| let b:AutoPairs = AutoPairsDefine({'\\(':'\\)', '\\[':'\\]', '\\{':'\\}'})
+"     \| endif
+" augroup END
 
 
 " R code folding [TODO] {{{1
