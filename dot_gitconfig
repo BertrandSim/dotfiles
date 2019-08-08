@@ -11,14 +11,20 @@
 [color "branch"]
 [core]
   editor = gvim
+  autocrlf = input 	# convert crlf to lf when adding, commiting
   # pager = less -FRSX
   # whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-  # autocrlf = input
+  whitespace = -trailing-space	# do not raise tailing spaces at EOL and EOF as errors
   # symlinks = false
   # excludesfile = ~/.gitignore
 [diff]
   tool = gvimdiff
 [difftool]
+  prompt = false
+[merge]
+  tool = gvimdiff
+  conflictstyle = diff3
+[mergetool]
   prompt = false
 [github]
   user = BertrandSim
@@ -32,7 +38,9 @@
   process = git-lfs filter-process
   required = true
 [alias]
-  aliases = ! git config --get-regexp '^alias\\.'  # lists aliases
+  alias-c = ! git config --get-regexp '^alias\\.'  # lists aliases
+  alias   = ! git config --get-regexp '^alias\\.' | sed -e s/^alias\\.//  -e s/\\ /\\ \\=\\ /   # in 'abbr = cmd' format
+  alias-s = ! git alias | sort   # in 'abbr = cmd' format, sorted alphabetically 
   conf    = config
   conf-l  = config --local
   conf-g  = config --global
@@ -45,10 +53,15 @@
   dt      = difftool
   dtc     = difftool --cached
   fe      = fetch
+  met     = mergetool
+  subm    = submodule
+  subm-u  = submodule update
   com     = commit
   com-a   = commit --amend
   cho     = checkout
   br      = branch
   st      = status
   # sts = status -sb
+  lgo     = log --oneline
   # lg = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
+  # lga = log --graph -- decorate --name-status --all

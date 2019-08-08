@@ -1,24 +1,24 @@
 [submodule ".vim/pack/bundle/start/vim-solarized8"]
-	path = .vim/pack/bundle/start/vim-solarized8
+	path = dot_vim/pack/bundle/start/vim-solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git
 [submodule ".vim/pack/bundle/opt/Nvim-R"]
-	path = .vim/pack/bundle/opt/Nvim-R
+	path = dot_vim/pack/bundle/opt/Nvim-R
 	url = https://github.com/BertrandSim/Nvim-R.git
 [submodule ".vim/pack/bundle/opt/auto-pairs"]
-	path = .vim/pack/bundle/opt/auto-pairs
+	path = dot_vim/pack/bundle/opt/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
 [submodule ".vim/pack/bundle/opt/vim-angry"]
-	path = .vim/pack/bundle/opt/vim-angry
+	path = dot_vim/pack/bundle/opt/vim-angry
 	url = https://github.com/b4winckler/vim-angry.git
 [submodule ".vim/pack/bundle/start/vim-markdown-folding"]
-	path = .vim/pack/bundle/start/vim-markdown-folding
+	path = dot_vim/pack/bundle/start/vim-markdown-folding
 	url = https://github.com/BertrandSim/vim-markdown-folding
 [submodule ".vim/pack/bundle/start/vim-unimpaired"]
-	path = .vim/pack/bundle/start/vim-unimpaired
+	path = dot_vim/pack/bundle/start/vim-unimpaired
 	url = https://github.com/BertrandSim/vim-unimpaired.git
 [submodule ".vim/pack/bundle/start/ultisnips"]
-	path = .vim/pack/bundle/start/ultisnips
+	path = dot_vim/pack/bundle/start/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
 [submodule ".vim/pack/bundle/opt/vim-easy-align"]
-	path = .vim/pack/bundle/opt/vim-easy-align
+	path = dot_vim/pack/bundle/opt/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git

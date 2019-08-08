@@ -78,6 +78,11 @@ filetype plugin indent on
 set encoding=utf-8		" The encoding displayed.
 set fileencoding=utf-8	" The encoding written to file.
 
+" File formats {{{1
+" ------------
+" set fileformat=unix
+set fileformats=unix,dos
+
 " plugins {{{1
 " --------
 
@@ -127,12 +132,11 @@ endif
 "
 let g:UltiSnipsEditSplit='context'	" Ultisnips: Open snippets file in a horizontal or vertical split, depending on context
 let g:tex_flavor='latex'			" ft of .tex files to 'tex', not 'plaintex'.
-augroup plugconfig
-  autocmd VimEnter * 
-		\if exists('g:AutoPairsLoaded') && g:AutoPairsLoaded == 1
-		\  | let g:AutoPairsCenterLine = 0		" Autopairs: do not re-center screen after pressing <CR>
-		\|endif
-augroup END
+
+if exists('g:AutoPairsLoaded') && g:AutoPairsLoaded == 1
+  let g:AutoPairsCenterLine = 0		" Autopairs: do not re-center screen after pressing <CR>
+  let g:AutoPairsMultilineClose = 0	" Autopairs: do not jump past closing char on another line
+endif
 
 " mappings for easy align plugin
 if exists("g:loaded_easy_align_plugin")
@@ -160,6 +164,9 @@ let R_rconsole_width = 0	" split rconsole window horizontally
 let R_rconsole_height = 15	" num lines in rconsole window
 
 let rout_follow_colorscheme = 1		" highlight R output in current colorscheme
+
+let R_clear_line = 1
+" clears console line with <C-a><C-k> when sending from buffer to terminal
 
 " UI {{{1
 " -------------------
@@ -224,6 +231,15 @@ augroup gvimm
 	  \|endif
 augroup END
 
+if has('gui_running')
+  if has('win64') || has('win32')
+	set winaltkeys=no
+	" don't use ALT to access the gui menu
+	" use :simalt instead.
+  endif
+endif
+
+
 " Transparency for gvim on windows os
 " requires vimtweak.dll to be installed in the folder containing vim.exe
 if has('gui_running')
@@ -274,6 +290,7 @@ if has('gui_running')
   endif
 
 endif
+
 " search options {{{1
 " -------------------
 set incsearch		" jump to first search as characters are entered
@@ -283,8 +300,24 @@ set smartcase		" *\c*ase insensitive when search is fully in lowercase, and
 
 set hlsearch		" highlight matches
 
+" search related mappings {{{1
+" -----------------------
+
 " turn off search highlighting with \<space>
 nnoremap <leader><space> :nohlsearch<CR>
+" nnoremap <leader><space> :let @/=""<CR>
+" highlight search matches without jumping to it
+nnoremap <leader>/ :let @/=""<Left>
+
+" enter search with word boundaries \<...\>
+nnoremap g/ /\<\><Left><Left>
+
+" search between marks
+nnoremap m/ /\%>'s\%(\)\%<'e<Left><Left><Left><Left><Left><Left><Left>
+
+" search within visual selection
+vnoremap / <Esc>/\%V\%(\)\%V<Left><Left><Left><Left><Left>
+
 
 " tabs and spacing {{{1
 " -------------------
@@ -305,6 +338,7 @@ set smarttab			" TAB adds a shiftwidth at the start of a line, and a softtabstop
 set wrap		" wrap lines (display)
 set linebreak	" don't break lines in between words
 if exists("&breakindent") | set breakindent | endif	" wrapped lines preserve indentation
+set showbreak=..	" wrapped lines are prepended with ".."
 
 " mapping to toggle wrap
 noremap <F3> :set wrap!<CR>
@@ -441,7 +475,12 @@ function! AddCommentOp(type)
   endif
 
   let minindent = GetMinIndent( range(startline, endline) )
-  let minsw = minindent / shiftwidth()   " min shiftwidth, integer division
+  if has('patch-7.3.694')
+	let minsw = minindent / shiftwidth()   " min shiftwidth, integer division
+  else
+	let shiftwidth_ = &sw == 0 ? &ts : &sw
+	let minsw = minindent / shiftwidth_
+  endif
 
   execute "silent" . startline.','.endline . repeat('<', minsw)
   execute "silent" . startline.','.endline . 'normal 0i'.comleader."\<Esc>"
@@ -633,6 +672,7 @@ endfunction
 	  " \:nohlsearch<CR>
 
 
+
 " folding {{{1
 " -------
 set foldenable		"enable folding
@@ -643,17 +683,71 @@ nnoremap z<Space> za
 
 " \zo to open _o_nly current fold (close all folds)
 nnoremap <leader>zo zMzv
+" \zO to _O_pen current fold, and other nested folds 
+nnoremap <leader>zO zMzO
 
-" R code folding {{{1
-" To sort it out
-" --------------
-" code folding, using native vim's syntax / Nvim-R
-setlocal foldmethod=syntax
-" let r_syntax_folding=1
-let r_syntax_brace_folding=1
-" or using custom fold expr instead... via plugin [TODO]
-" setlocal foldmethod=expr
 
+" =======
+" filetype specifics {{{1
+" ------------------
+
+" augroup ft_md
+  " autocmd!
+  " Use nested instead of flat folding for markdown files. (Toggle with :FoldToggle)
+  " autocmd Filetype markdown set foldexpr=NestedMarkdownFolds()
+" augroup END
+
+augroup ft_vim
+  autocmd!
+  " don't autowrap comments onto newline, or insert comment leader when using o or O.
+  autocmd Filetype vim setlocal formatoptions-=c formatoptions-=o
+  autocmd Filetype vim 
+		\if exists('g:AutoPairsLoaded') && g:AutoPairsLoaded == 1
+		\|  let b:AutoPairs = {'(':')'}
+		\|endif
+augroup END
+
+augroup ft_snippets
+  autocmd!
+  autocmd Filetype snippets setlocal ts=4 sts=0 sw=0 noet
+augroup END
+
+" R code {{{2
+" ------
+augroup ft_r
+  autocmd!
+  autocmd Filetype r setlocal ts=8 sts=0 sw=2 noet sta  " default tabstop, indent by 2 spaces
+  " autocmd Filetype r setlocal shiftwidth=2 tabstop=2 softtabstop=0, expandtab nosmarttab	" tabs and indents are 2 spaces
+
+  " quick assignment <-
+  " autocmd Filetype r inoremap <buffer> __ <-
+  " replaced by ultisnips
+  " see also Nvim-R's R_assign.
+
+  " quick piping %>%
+  " autocmd Filetype r inoremap <buffer> >> %>%
+  " replaced by ultisnips
+
+  " use forward slash '/' when expanding filepaths
+  autocmd Filetype r setlocal shellslash
+
+  " code folding, using native vim's syntax / Nvim-R
+  autocmd Filetype r setlocal foldmethod=syntax
+  " let r_syntax_folding=1
+  let r_syntax_brace_folding=1
+  " or using custom fold expr instead... via plugin [TODO]
+  " autocmd Filetype r setlocal foldmethod=expr
+
+  " add comment leader when pressing <CR>, allow autoformat with gq, 
+  " don't automatically break lines, remove comment leader when joining lines
+
+  if has('patch-7.3.550')
+    autocmd Filetype r setlocal formatoptions=rqlj
+  else
+    autocmd Filetype r setlocal formatoptions=rql
+  endif
+augroup END
+" >>>>>>> master:dot_vim/vimrc
 
 
 " terminal {{{1
@@ -666,7 +760,11 @@ if has('terminal')
   " ... and back to terminal job mode
   augroup termm
 	autocmd!
-	autocmd TerminalOpen * if &buftype ==# 'terminal' | nnoremap <buffer> <F2> i| endif
+	if (v:version >= 801)
+	  autocmd TerminalOpen * if &buftype ==# 'terminal' | nnoremap <buffer> <F2> i| endif
+	else
+	  autocmd BufWinEnter *  if &buftype ==# 'terminal' | nnoremap <buffer> <F2> i| endif
+	endif
   augroup END
 
   " ^r to insert register (^w" in terminal job mode)
@@ -732,4 +830,4 @@ set diffopt+=vertical	  " when starting diffmode, use vertical splits by default
 " ----------------------------------
 set modelines=2
 " vim: filetype=vim ts=4 sw=2 sts=4 noet sta
-" vim: foldmethod=marker foldlevel=0 ff=unix
+" vim: foldmethod=marker foldlevel=0 fileformat=unix
