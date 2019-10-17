@@ -22,3 +22,6 @@ alias grep='grep --color=auto'
 
 alias gti='git'
 # alias  gi='git'
+
+alias gs='git status'
+alias gd='git diff'
