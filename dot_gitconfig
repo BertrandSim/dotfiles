@@ -59,7 +59,7 @@
   subm    = submodule
   subm-u  = submodule update
   com     = commit
-  com-a   = commit --amend
+  coma   = commit --amend
   cho     = checkout
   #
   # ---displaying info---
@@ -67,6 +67,8 @@
   st      = status
   # sts = status -sb
   lgo     = log --oneline
+  ldog    = log --decorate --oneline --graph
+  ldoga   = log --decorate --oneline --graph --all
   # lg = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
   # lga = log --graph -- decorate --name-status --all
   #
