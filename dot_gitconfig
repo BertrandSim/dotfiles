@@ -61,11 +61,12 @@
   subm    = submodule
   subm-u  = submodule update
   com     = commit
-  coma   = commit --amend
+  coma    = commit --amend
   cho     = checkout
   #
   # ---displaying info---
   br      = branch
+  bra     = branch --all
   st      = status
   # sts = status -sb
   # ---logs---
