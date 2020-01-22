@@ -74,7 +74,7 @@
   ldog    = log --decorate --oneline --graph
   ldoga   = log --decorate --oneline --graph --all
 
-  lg = log --graph --pretty=format:'%C(auto)%h%C(reset) %C(dim green)(%ad)%C(reset) %C(auto)%s%C(reset) %C(auto)%+d%C(reset)' --date=format:'%d/%m/%Y' # '%d/%m/%Y %H:%M'
+  lg = log --graph --pretty=format:'%C(auto)%d%C(reset) %C(auto)%h%C(reset) %C(dim green)(%ad)%C(reset) %C(auto)%s%C(reset)' --date=format:'%d/%m/%Y' # '%d/%m/%Y %H:%M'
   lga = !"git lg --all"
   lad = !"git lg --all --simplify-by-decoration"  # shows branch topology
   # some examples of git logs below: #
