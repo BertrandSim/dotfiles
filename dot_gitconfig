@@ -73,17 +73,14 @@
   lgo     = log --oneline
   ldog    = log --decorate --oneline --graph
   ldoga   = log --decorate --oneline --graph --all
-  #
+
+  lg = log --graph --pretty=format:'%C(auto)%h%C(reset) %C(dim green)(%ad)%C(reset) %C(auto)%s%C(reset) %C(auto)%+d%C(reset)' --date=format:'%d/%m/%Y' # '%d/%m/%Y %H:%M'
+  lga = !"git lg --all"
+  lad = !"git lg --all --simplify-by-decoration"  # shows branch topology
+  # some examples of git logs below: #
   # lg = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
   # lga = log --graph -- decorate --name-status --all
   # lg1 = log --graph --pretty=format:'%C(bold blue)%h%C(reset) %C(bold green)(%ad)%C(reset) %C(white)%s%C(reset) %C(auto)%d%C(reset)' --date=format:'%d/%m/%Y' # '%d/%m/%Y %H:%M'
-  lg = log --graph --pretty=format:'%C(auto)%h%C(reset) %C(dim green)(%ad)%C(reset) %C(auto)%s%C(reset) %C(auto)%+d%C(reset)' --date=format:'%d/%m/%Y' # '%d/%m/%Y %H:%M'
-  lga = !"git lg --all"
   # lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
   # lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
   # lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
-  #
-  # ---one char shortcuts---
-  s       = status
-  d       = diff
-
