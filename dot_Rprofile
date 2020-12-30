@@ -34,8 +34,8 @@ options(menu.graphics=FALSE)
 # options(continue="+ ")
 # options(width = 80)
  
-if(Sys.getenv("TERM") == "xterm-256color")
-  library("colorout")
+# if(Sys.getenv("TERM") == "xterm-256color")
+#   library("colorout")
  
 # start and end ----
 
