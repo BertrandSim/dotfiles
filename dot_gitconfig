@@ -55,6 +55,8 @@
   rs      = reset
   df      = diff
   dfc     = diff --cached
+  dfw     = diff --color-words	# show a word diff (vs line diff)
+  dfwc    = diff --color-words --cached
   dt      = difftool
   dtc     = difftool --cached
   fe      = fetch
