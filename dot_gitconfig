@@ -19,11 +19,13 @@
   # symlinks = false
   # excludesfile = ~/.gitignore
 [diff]
-  tool = gvimdiff
+  tool = vimdiff
+  guitool = gvimdiff
 [difftool]
   prompt = false
 [merge]
-  tool = gvimdiff
+  tool = vimdiff
+  guitool = gvimdiff
   conflictstyle = diff3
 [mergetool]
   prompt = false
