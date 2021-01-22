@@ -66,6 +66,7 @@
   subm-u  = submodule update
   com     = commit
   coma    = commit --amend
+  cone    = commit --amend --no-edit
   cho     = checkout
   #
   # ---displaying info---
