@@ -64,7 +64,9 @@
   mert    = mergetool
   subm    = submodule
   subm-u  = submodule update
+  # ---committing---
   com     = commit
+  comm    = commit -m
   coma    = commit --amend
   cone    = commit --amend --no-edit
   cho     = checkout
