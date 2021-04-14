@@ -55,8 +55,10 @@
   rs      = reset
   df      = diff
   dfc     = diff --cached
-  dfw     = diff --color-words	# show a word diff (vs line diff)
-  dfwc    = diff --color-words --cached
+    # show a word diff (vs line diff)
+  dfw     = diff --color-words=.
+  # dfw     = -c color.diff.new='green reverse' -c color.diff.old='red reverse' diff --color-words=.	
+  dfwc    = !"git dfw --cached"
   dt      = difftool
   dtc     = difftool --cached
   fe      = fetch
