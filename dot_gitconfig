@@ -18,6 +18,12 @@
   whitespace = -trailing-space	# do not raise tailing spaces at EOL and EOF as errors
   # symlinks = false
   # excludesfile = ~/.gitignore
+[pager]
+  # show word-diffs within line diffs
+  # using diff-highlight, which is `locate`d within git/contrib/
+  log  = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
 [diff]
   tool = vimdiff
   guitool = gvimdiff
