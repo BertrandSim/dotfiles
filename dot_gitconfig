@@ -62,7 +62,7 @@
   df      = diff
   dfc     = diff --cached
     # show a word diff (vs line diff)
-  dfw     = diff --color-words=.
+  dfw     = diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
   # dfw     = -c color.diff.new='green reverse' -c color.diff.old='red reverse' diff --color-words=.	
   dfwc    = !"git dfw --cached"
   dt      = difftool
