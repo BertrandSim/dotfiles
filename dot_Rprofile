@@ -69,6 +69,14 @@ options(menu.graphics=FALSE)
   utils:::str(..., list.len=list.len)
 }
 
+# rmls() as shortcut for rm(list=ls())
+.env$rmls <- function() {
+  ENV <- globalenv()
+  ll <- ls(envir = ENV)
+  # ll <- ll[ll != "rmls"]
+  rm(list = ll, envir = ENV)
+}
+
 attach(.env)
 
 
