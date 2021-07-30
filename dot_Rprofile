@@ -83,4 +83,4 @@ attach(.env)
 
 # end ----
 
-message("** Successfully loaded .Rprofile **")
+message("** Successfully loaded user .Rprofile **")
