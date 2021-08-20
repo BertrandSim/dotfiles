@@ -60,6 +60,7 @@
   # ---interacting---
   ad      = add
   rs      = reset
+  cho     = checkout
   df      = diff
   dfc     = diff --cached
     # show a word diff (vs line diff)
@@ -78,7 +79,10 @@
   comm    = commit -m
   coma    = commit --amend
   cone    = commit --amend --no-edit
-  cho     = checkout
+  comfi   = commit --fixup # yep, feeling comfortable now!
+  # ---rebasing---
+  rebi    = rebase --interactive
+  refine  = !GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash # REbase FIxups, NoEdit
   #
   # ---displaying info---
   br      = branch
