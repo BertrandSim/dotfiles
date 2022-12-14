@@ -10,6 +10,7 @@
 [color "branch"]
 [core]
   # editor = gvim
+  # editor = nvim
   editor = vim
   autocrlf = input 	# convert crlf to lf when adding, commiting
   # pager = less -FRSX
