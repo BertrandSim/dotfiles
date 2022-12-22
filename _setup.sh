@@ -12,4 +12,4 @@ ln -s $SCRIPTDIR/dot_ctags ~/.ctags
 ## alternatively, in the GUI, Menu > Folder > Edit Sort Order...
 # ln -s $SCRIPTDIR/evolution/mail/folder-tweaks.ini ~/.config/evolution/mail/folder-tweaks.ini
 ## custom keyboard shortcuts
-# ln -s $SCRIPTDIR/evolution-mail-custom-shortcuts/accels ~/.config/evolution/accels
+ln -s $SCRIPTDIR/evolution-mail-custom-shortcuts/accels ~/.config/evolution/accels

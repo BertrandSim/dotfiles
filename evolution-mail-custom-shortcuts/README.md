@@ -19,18 +19,23 @@ These commonly used keyboard shortcuts will be enabled/changed:
 ```
 (gtk_accel_path "<Actions>/new-item/mail-message-new" "<Primary>n")
 (gtk_accel_path "<Actions>/mail/mail-flag-for-followup" "asterisk")
-(gtk_accel_path "<Actions>/mail-convert-any/mail-convert-to-task" "<Shift>t")
-(gtk_accel_path "<Actions>/mail/mail-delete" "numbersign")
+(gtk_accel_path "<Actions>/mail/mail-delete" "x")
+(gtk_accel_path "<Actions>/mail/mail-undelete" "<Shift>x")
 
-(gtk_accel_path "<Actions>/shell/search-quick" "slash")
-
-(gtk_accel_path "<Actions>/mail/mail-threads-expand-all" "semicolon")
-(gtk_accel_path "<Actions>/mail/mail-threads-collapse-all" "colon")
+(gtk_accel_path "<Actions>/mail/mail-threads-expand-all" "o")
+(gtk_accel_path "<Actions>/mail/mail-threads-collapse-all" "<Shift>o")
 
 (gtk_accel_path "<Actions>/mail/mail-next" "j")
 (gtk_accel_path "<Actions>/mail/mail-previous" "k")
+(gtk_accel_path "<Actions>/mail/mail-next-unread" "<Shift>j")
+(gtk_accel_path "<Actions>/mail/mail-previous-unread" "<Shift>k")
 (gtk_accel_path "<Actions>/mail/mail-next-thread" "n")
 (gtk_accel_path "<Actions>/mail/mail-previous-thread" "p")
+
+(gtk_accel_path "<Actions>/mail/mail-mark-read" "m")
+(gtk_accel_path "<Actions>/mail/mail-mark-unread" "<Shift>m")
+
+(gtk_accel_path "<Actions>/shell/search-quick" "slash")
 
 (gtk_accel_path "<Actions>/core-editor/style-list-number" "<Primary><Shift>7")
 (gtk_accel_path "<Actions>/core-editor/style-list-bullet" "<Primary><Shift>8")
