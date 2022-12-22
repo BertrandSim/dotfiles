@@ -7,6 +7,9 @@ ln -s $SCRIPTDIR/dot_ctags ~/.ctags
 # ln -s $SCRIPTDIR/dot_Rprofile ~/.Rprofile
 
 
-## rearrange folders in evolution
+# evolution mail client config
+## rearrange folders
 ## alternatively, in the GUI, Menu > Folder > Edit Sort Order...
 # ln -s $SCRIPTDIR/evolution/mail/folder-tweaks.ini ~/.config/evolution/mail/folder-tweaks.ini
+## custom keyboard shortcuts
+# ln -s $SCRIPTDIR/evolution-mail-custom-shortcuts/accels ~/.config/evolution/accels
