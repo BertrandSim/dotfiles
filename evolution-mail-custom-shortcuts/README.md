@@ -20,7 +20,6 @@ These commonly used keyboard shortcuts will be enabled/changed:
 (gtk_accel_path "<Actions>/new-item/mail-message-new" "<Primary>n")
 (gtk_accel_path "<Actions>/mail/mail-flag-for-followup" "asterisk")
 (gtk_accel_path "<Actions>/mail/mail-delete" "x")
-(gtk_accel_path "<Actions>/mail/mail-undelete" "<Shift>x")
 
 (gtk_accel_path "<Actions>/mail/mail-threads-expand-all" "o")
 (gtk_accel_path "<Actions>/mail/mail-threads-collapse-all" "<Shift>o")
