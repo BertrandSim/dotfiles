@@ -62,6 +62,7 @@
   ad      = add
   rs      = reset
   cho     = checkout
+  chob    = checkout -b
   df      = diff
   dfc     = diff --cached
     # show a word diff (vs line diff)
