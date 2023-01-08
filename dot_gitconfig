@@ -6,6 +6,13 @@
 [color]
   ui = auto
 [color "diff"]
+[color "diff-highlight"]
+  oldNormal = red 
+  oldHighlight = red ul
+  # oldHighlight = red 52
+  newNormal = green 
+  newHighlight = green ul
+  # newHighlight = green 22
 [color "status"]
 [color "branch"]
 [core]
@@ -69,6 +76,9 @@
   dfw     = diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
   # dfw     = -c color.diff.new='green reverse' -c color.diff.old='red reverse' diff --color-words=.	
   dfwc    = !"git dfw --cached"
+    # highlight words on top of line diffs   
+  dfh     = -c pager.diff='diff-highlight | less' diff
+  dfhc    = !"git dfh --cached"
   dt      = difftool
   dtc     = difftool --cached
   fe      = fetch
