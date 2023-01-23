@@ -32,3 +32,8 @@ alias gl='git lg'
 alias gla='git lg --all'
 alias glad='git lg --all --simplify-by-decoration'
 alias gfgs='git fetch; git status'
+
+
+# other programs
+## okular: set env variable to resolve stylus menu offset issue
+alias okular='QT_XCB_TABLET_LEGACY_COORDINATES=1 okular'
