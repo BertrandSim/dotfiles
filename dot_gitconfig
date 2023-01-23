@@ -70,6 +70,7 @@
   rs      = reset
   cho     = checkout
   chob    = checkout -b
+  fe      = fetch
   df      = diff
   dfc     = diff --cached
     # show a word diff (vs line diff)
@@ -79,9 +80,11 @@
     # highlight words on top of line diffs   
   dfh     = -c pager.diff='diff-highlight | less' diff
   dfhc    = !"git dfh --cached"
+  dfs     = diff --stat
+  dfsc    = !"git dfs --cached"
   dt      = difftool
   dtc     = difftool --cached
-  fe      = fetch
+  ss      = show --compact-summary # show the summary (--stat)s of changes made by a commit
   met     = mergetool
   mert    = mergetool
   subm    = submodule
