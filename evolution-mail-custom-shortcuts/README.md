@@ -4,7 +4,7 @@
 
 If currently running, quit Evolution before making changes. Even after quitting the application, Evolution processes continue to run in the background. The following command-line may be used to list and kill the Evolution processes:
 
-`user@linux:~$ kill $(ps aux | grep '[e]volution' | awk '{print $2}')`
+`kill $(ps aux | grep '[e]volution' | awk '{print $2}')`
 
 Review and update the `accels` file to `$HOME/.config/evolution/accels` and start Evolution again.
 
