@@ -31,8 +31,8 @@ These commonly used keyboard shortcuts will be enabled/changed:
 (gtk_accel_path "<Actions>/mail/mail-next-thread" "n")
 (gtk_accel_path "<Actions>/mail/mail-previous-thread" "p")
 
-(gtk_accel_path "<Actions>/mail/mail-mark-read" "m")
-(gtk_accel_path "<Actions>/mail/mail-mark-unread" "<Shift>m")
+(gtk_accel_path "<Actions>/mail/mail-mark-read" "<Primary>q")
+(gtk_accel_path "<Actions>/mail/mail-mark-unread" "<Primary>u")
 
 (gtk_accel_path "<Actions>/shell/search-quick" "slash")
 
