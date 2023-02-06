@@ -4,6 +4,8 @@
 #   fi
 # in the ~/.bashrc file
 
+alias gt="cd -P"   # goto; like cd, but resolving symlinks
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ..1="cd .."

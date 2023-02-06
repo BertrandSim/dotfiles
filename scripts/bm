@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# bookmark script to add frequently used locations.
+# adapted from https://www.youtube.com/watch?v=woQATB5EMLc
+
+# Example: 
+#    bm add . @mydir1
+#    cd -P @mydir1
+#    bm rm @mydir1
+
+# setup with bm_init.sh before using this script.
+
+if [[ $1 = "add" ]]; then
+  dir="$(pwd)/$2"
+  ln -s "$dir" "$HOME/.bookmarks/$3" && echo "bm: $3 saved successfully."
+elif [[ $1 = "rm" ]]; then
+  rm "$HOME/.bookmarks/$2"
+  echo "bm: $2 removed successfully."
+else
+  echo "Usage:"
+  echo "bm add <dir> <aliasname> to save a bookmark location"
+  echo "bm rm <aliasname> to remove a bookmark"
+fi
+
+

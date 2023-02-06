@@ -8,13 +8,16 @@ ln -s $SCRIPTDIR/dot_ctags ~/.ctags
 
 ln -s $SCRIPTDIR/keyboard-scripts ~/keyboard-scripts
 
+# setup ~/.bookmarks
+./bm_init.sh
+
+
 # evolution mail client config
 ## rearrange folders
 ## alternatively, in the GUI, Menu > Folder > Edit Sort Order...
 # ln -s $SCRIPTDIR/evolution/mail/folder-tweaks.ini ~/.config/evolution/mail/folder-tweaks.ini
 ## custom keyboard shortcuts
 ln -s $SCRIPTDIR/evolution-mail-custom-shortcuts/accels ~/.config/evolution/accels
-
 
 # nemo file explorer config
 ## custom keyboard shortcuts
