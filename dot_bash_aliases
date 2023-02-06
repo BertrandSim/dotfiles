@@ -22,6 +22,7 @@ alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 # alias less='less -R'
 
+# git aliases (see also ~/.gitconfig)
 alias gti='git'
 # alias  gi='git'
 
