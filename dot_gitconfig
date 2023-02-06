@@ -39,6 +39,7 @@
 [difftool]
   prompt = false
 [merge]
+  ff = false     # use merge --no-ff by default
   tool = vimdiff
   guitool = gvimdiff
   conflictstyle = diff3
