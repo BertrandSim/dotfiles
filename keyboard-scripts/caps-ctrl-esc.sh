@@ -1,5 +1,7 @@
 # make CapsLock behave like Ctrl
-setxkbmap -option ctrl:nocaps
+setxkbmap -option ctrl:nocaps	# Caps Lock as Ctrl
+setxkbmap -option caps:none	# Caps Lock is disabled
+
 # make short-pressed Ctrl behave like Esc
 # from the gist "tanyuan/smart-caps-lock.md" on github
 # edit: add a guard to prevent multiple Escape's from being fired
