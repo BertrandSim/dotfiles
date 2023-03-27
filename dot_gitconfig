@@ -74,6 +74,12 @@
     # checkout a commit by date (first arg), reachable with the current or specified branch / commit-ish (second arg, optional)
   chodate = !"f(){ git rev-list -n1 --before=\"$1\" \"${2:-HEAD}\" | xargs git checkout; }; f"
   fe      = fetch
+  br      = branch
+  bra     = branch --all
+  st      = status
+  # sts = status -sb
+  ss      = show --compact-summary # show the summary (--stat)s of changes made by a commit
+  # ---diffs ---
   df      = diff
   dfc     = diff --cached
     # show a word diff (vs line diff)
@@ -85,13 +91,11 @@
   dfhc    = !"git dfh --cached"
   dfs     = diff --stat
   dfsc    = !"git dfs --cached"
+  # ---diff and merge tools---
   dt      = difftool
   dtc     = difftool --cached
-  ss      = show --compact-summary # show the summary (--stat)s of changes made by a commit
   met     = mergetool
   mert    = mergetool
-  subm    = submodule
-  subm-u  = submodule update
   # ---committing---
   com     = commit
   comm    = commit -m
@@ -102,11 +106,9 @@
   rebi    = rebase --interactive
   refine  = !GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash # REbase FIxups, NoEdit
   #
-  # ---displaying info---
-  br      = branch
-  bra     = branch --all
-  st      = status
-  # sts = status -sb
+  # ---other---
+  subm    = submodule
+  subm-u  = submodule update
   # ---logs---
   lgo     = log --oneline
   ldog    = log --decorate --oneline --graph
