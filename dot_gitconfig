@@ -71,6 +71,8 @@
   rs      = reset
   cho     = checkout
   chob    = checkout -b
+    # checkout a commit by date (first arg), reachable with the current or specified branch / commit-ish (second arg, optional)
+  chodate = !"f(){ git rev-list -n1 --before=\"$1\" \"${2:-HEAD}\" | xargs git checkout; }; f"
   fe      = fetch
   df      = diff
   dfc     = diff --cached
