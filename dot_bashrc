@@ -125,7 +125,7 @@ export EDITOR=nvim
 # custom keyboard layout
 ## remap capslock to ctrl + esc
 ## setup 3rd layer and compose key
-~/keyboard-scripts/caps-ctrl-esc.sh
+~/keyboard-scripts/kb-layout.sh
 
 # custom paths
 ## texlive 2022
