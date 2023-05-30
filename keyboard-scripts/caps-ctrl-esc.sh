@@ -15,5 +15,5 @@ setxkbmap -option lv3:ralt_switch_multikey # Right Alt is 3rd layer, Shift+Right
 
 # list of default compose sequences: 
 #   /usr/share/X11/locale/en_US.UTF-8/Compose
-# custom additions: 
+# custom compose sequences: 
 #   ./keyboard-scripts/dot_Xcompose

@@ -1,0 +1,30 @@
+include "%L"   # load default compose sequences in 
+               # /usr/share/X11/locale/en_US.UTF-8/Compose
+
+<Multi_key> <l> <t> <e> : "≤" U2264	# also <=
+<Multi_key> <g> <t> <e> : "≥" U2265	# also >=
+<Multi_key> <n> <e> <q> : "≠" U2260	# also =/, /=
+<Multi_key> <I> <n> <f> : "∞" U221e	# also 88
+
+# greeks (selected)
+<Multi_key> <k> <l> <a> : "α" U03b1	# GREEK SMALL LETTER ALPHA
+<Multi_key> <k> <l> <b> : "β" U03b2	# GREEK SMALL LETTER ALPHA
+<Multi_key> <k> <l> <g> : "γ" U03b3	# GREEK SMALL LETTER GAMMA
+<Multi_key> <k> <l> <h> : "η" U03b7	# GREEK SMALL LETTER ETA
+<Multi_key> <k> <l> <q> : "θ" U03b8	# GREEK SMALL LETTER THETA
+<Multi_key> <k> <l> <l> : "λ" U03bb	# GREEK SMALL LETTER LAMBDA
+<Multi_key> <k> <l> <m> : "μ" U03bc	# GREEK SMALL LETTER MU
+<Multi_key> <k> <l> <c> : "ξ" U03be	# GREEK SMALL LETTER XI
+<Multi_key> <k> <l> <p> : "π" U03c0	# GREEK SMALL LETTER PI
+<Multi_key> <k> <l> <r> : "ρ" U03c1	# GREEK SMALL LETTER RHO
+<Multi_key> <k> <l> <s> : "σ" U03c3	# GREEK SMALL LETTER SIGMA
+<Multi_key> <k> <l> <t> : "τ" U03c4	# GREEK SMALL LETTER TAU
+<Multi_key> <k> <l> <f> : "ϕ" U03d5	# GREEK PHI SYMBOL
+<Multi_key> <k> <l> <x> : "χ" U03c7	# GREEK SMALL LETTER CHI
+<Multi_key> <k> <l> <y> : "ψ" U03c8	# GREEK SMALL LETTER PSI
+<Multi_key> <k> <l> <w> : "ω" U03c9	# GREEK SMALL LETTER OMEGA
+<Multi_key> <k> <v> <e> : "ε" U03b5	# GREEK SMALL LETTER EPSILON
+<Multi_key> <k> <l> <G> : "Γ" U0393	# GREEK CAPITAL LETTER GAMMA
+<Multi_key> <k> <l> <F> : "Φ" U03a6	# GREEK CAPITAL LETTER PHI
+
+
