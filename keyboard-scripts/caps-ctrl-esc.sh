@@ -10,3 +10,10 @@ if [[ ! $(ps aux | grep "xcape -e Control_L Escape" | grep -v "grep" | awk '{pri
   xcape -e 'Control_L=Escape'
 fi
 
+# setup 3rd layer and compose key
+setxkbmap -option lv3:ralt_switch_multikey # Right Alt is 3rd layer, Shift+Right Alt key is Compose	
+
+# list of default compose sequences: 
+#   /usr/share/X11/locale/en_US.UTF-8/Compose
+# custom additions: 
+#   ./keyboard-scripts/dot_Xcompose

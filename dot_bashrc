@@ -124,6 +124,7 @@ export EDITOR=nvim
 
 # custom keyboard layout
 ## remap capslock to ctrl + esc
+## setup 3rd layer and compose key
 ~/keyboard-scripts/caps-ctrl-esc.sh
 
 # custom paths
