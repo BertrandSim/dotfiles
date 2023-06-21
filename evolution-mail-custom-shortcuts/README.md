@@ -40,4 +40,8 @@ These commonly used keyboard shortcuts will be enabled/changed:
 
 (gtk_accel_path "<Actions>/core-editor/style-list-number" "<Primary><Shift>7")
 (gtk_accel_path "<Actions>/core-editor/style-list-bullet" "<Primary><Shift>8")
+
+(gtk_accel_path "<Actions>/shell/quit" "<Primary><Alt>q")
 ```
+The last changes the mapping for quit to use a non-default mapping, 
+to prevent conflict with the old shortcut for mail-mark-read (<Primary>q)
