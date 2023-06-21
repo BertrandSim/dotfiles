@@ -5,8 +5,10 @@
 
 # Example: 
 #    bm add . @mydir1
+#    bm view
 #    cd -P @mydir1
 #    bm rm @mydir1
+#    bm view
 
 # setup with bm_init.sh before using this script.
 
@@ -16,10 +18,13 @@ if [[ $1 = "add" ]]; then
 elif [[ $1 = "rm" ]]; then
   rm "$HOME/.bookmarks/$2"
   echo "bm: $2 removed successfully."
+elif [[ $1 = "view" ]]; then
+  find "$HOME/.bookmarks" -maxdepth 1 -type l -printf "%f -> %l\n"
 else
   echo "Usage:"
   echo "bm add <dir> <aliasname> to save a bookmark location"
   echo "bm rm <aliasname> to remove a bookmark"
+  echo "bm view to list all existing bookmarks"
 fi
 
 
