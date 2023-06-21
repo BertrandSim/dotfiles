@@ -1,0 +1,6 @@
+# gsettings for evolution mail
+
+# expand all threads by default 
+# (this is also necessary for the following behavior:
+#  when a thread is expanded, all messages in the thread are shown)
+gsettings set org.gnome.evolution.mail thread-expand true
