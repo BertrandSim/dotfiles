@@ -3,5 +3,5 @@ if ! [ -d "$HOME/.bookmarks" ]; then
 fi
 
 # enable use of bookmarks with the following command 
-# (eg. placei it in $HOME/.bashrc)
 # export CDPATH=.:$HOME/.bookmarks
+# (or place it in $HOME/.bashrc)

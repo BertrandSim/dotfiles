@@ -13,18 +13,27 @@
 # setup with bm_init.sh before using this script.
 
 if [[ $1 = "add" ]]; then
-  dir="$(pwd)/$2"
-  ln -s "$dir" "$HOME/.bookmarks/$3" && echo "bm: $3 saved successfully."
+  if [[ "$2" = /* ]];
+  then
+    dir="$2" # Absolute path
+  else
+    dir="$(pwd)/$2" # relative path
+  fi
+  ln -s "$dir" "$HOME/.bookmarks/$3" 
+  echo "bm: $3 saved successfully."
+
 elif [[ $1 = "rm" ]]; then
   rm "$HOME/.bookmarks/$2"
   echo "bm: $2 removed successfully."
+
 elif [[ $1 = "view" ]]; then
   find "$HOME/.bookmarks" -maxdepth 1 -type l -printf "%f -> %l\n"
+
 else
   echo "Usage:"
   echo "bm add <dir> <aliasname> to save a bookmark location"
-  echo "bm rm <aliasname> to remove a bookmark"
+  echo "bm rm <aliasname> to remove an existing bookmark"
   echo "bm view to list all existing bookmarks"
-fi
 
+fi
 
