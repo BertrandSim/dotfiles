@@ -1,3 +1,6 @@
+# setup inverse search
 set synctex true
-set synctex-editor-command "gvim +%{line} %{input}"
+set synctex-editor-command "nvim +%{line} %{input}"
+
+# use clipboard register ("+) instead of primary selection ("*)
 set selection-clipboard clipboard
