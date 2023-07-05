@@ -1,0 +1,10 @@
+# commands to be run on shell login, and GUI login on Ubuntu
+
+# custom paths
+## texlive 2022
+export PATH="/usr/local/texlive/2022/bin/x86_64-linux:$PATH"
+export MANPATH="/usr/local/texlive/2022/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="/usr/local/texlive/2022/texmf-dist/doc/info:$INFOPATH"
+
+## personal scripts
+export PATH="$HOME/dotfiles/scripts:$PATH"
