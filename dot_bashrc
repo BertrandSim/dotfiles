@@ -128,13 +128,9 @@ export EDITOR=nvim
 ~/keyboard-scripts/kb-layout.sh
 
 # custom paths
-## texlive 2022
-export PATH="/usr/local/texlive/2022/bin/x86_64-linux:$PATH"
-export MANPATH="/usr/local/texlive/2022/texmf-dist/doc/man:$MANPATH"
-export INFOPATH="/usr/local/texlive/2022/texmf-dist/doc/info:$INFOPATH"
-
+# see dot_profile -> ~/.profile , which modifies *PATH for
+## texlive
 ## personal scripts
-export PATH="$HOME/dotfiles/scripts:$PATH"
 
 ## use bookmarks (see scripts/bm) 
 if [ -d "$HOME/.bookmarks" ]; then
