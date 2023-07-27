@@ -13,7 +13,10 @@ ln -s $SCRIPTDIR/keyboard-scripts/dot_XCompose ~/.XCompose
 
 # setup ~/.bookmarks
 ./bm_init.sh
+chmod +x $SCRIPTDIR/scripts/bm
 
+# setup ff firefox search alias
+chmod +x $SCRIPTDIR/scripts/ff
 
 # evolution mail client config
 ## rearrange folders
