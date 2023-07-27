@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# use ff <search terms> to open firefox with the query
+
+# Example:
+#    ff stewart calculus
+
+# combine search terms with +
+local IFS='+'
+
+firefox "http://www.google.com/search?q=${*}"
