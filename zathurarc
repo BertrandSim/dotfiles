@@ -2,5 +2,34 @@
 set synctex true
 set synctex-editor-command "nvim +%{line} %{input}"
 
+# use shortnames for window titles
+# to be able to get the preview the filename easily in a desktop session
+set window-title-home-titde true
+# set window-title-basename true
+
 # use clipboard register ("+) instead of primary selection ("*)
 set selection-clipboard clipboard
+
+# preserve color hue of media
+set recolor-keephue true
+
+# brownish light background
+set recolor-darkcolor \#333333
+# set recolor-lightcolor \#bbbbaa
+set recolor-lightcolor \#dcd7c8  # "solarized 1.5"
+# set recolor-lightcolor \#ebe7df
+# set recolor-reverse-video ?
+
+# sepia
+map <F1> focus_inputbar ":set recolor-darkcolor \#514d47"
+map <F2> focus_inputbar ":set recolor-lightcolor \#f2edde"
+# set recolor-lightcolor \#f5f1e5
+map ! feedkeys "<F1><Return><F2><Return>"
+
+# dark
+map <F3> focus_inputbar ":set recolor-lightcolor \#232323" # background
+map <F4> focus_inputbar ":set recolor-darkcolor \#cacaca" # text
+# ":set recolor-darkcolor \#a4a4a4<Return>"  # text
+map @ feedkeys "<F3><Return><F4><Return>"  
+
+
