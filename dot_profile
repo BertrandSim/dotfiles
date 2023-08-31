@@ -1,7 +1,7 @@
 # commands to be run on shell login, and GUI login on Ubuntu
 
 # custom paths
-## texlive 2022
+## texlive 2023
 export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
 export MANPATH="/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH"
