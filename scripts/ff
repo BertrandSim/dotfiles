@@ -5,7 +5,12 @@
 # Example:
 #    ff stewart calculus
 
-# combine search terms with +
-local IFS='+'
 
-firefox "http://www.google.com/search?q=${*}"
+if [ -z "$1" ]; then
+    # echo "No argument supplied"
+    firefox 
+else
+    # combine search terms with +
+    local IFS='+'
+    firefox "http://www.google.com/search?q=${*}"
+fi
