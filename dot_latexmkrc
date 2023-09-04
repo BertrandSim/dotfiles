@@ -1,0 +1,5 @@
+# allow the use of aux directory
+# store auxiliary files in .auxfiles
+$emulate_aux = 1
+$out_dir = ""
+$aux_dir = ".auxfiles"

@@ -7,6 +7,7 @@ ln -s $SCRIPTDIR/dot_bash_aliases ~/.bash_aliases
 ln -s $SCRIPTDIR/dot_ctags ~/.ctags
 # ln -s $SCRIPTDIR/dot_Rprofile ~/.Rprofile
 ln -s $SCRIPTDIR/zathurarc ~/.config/zathura/zathurarc
+ln -s $SCRIPTDIR/dot_latexmkrc ~/.latexmkrc
 
 ln -s $SCRIPTDIR/keyboard-scripts ~/keyboard-scripts
 ln -s $SCRIPTDIR/keyboard-scripts/dot_XCompose ~/.XCompose
