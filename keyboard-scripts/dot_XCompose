@@ -6,6 +6,16 @@ include "%L"   # load default compose sequences in
 <Multi_key> <n> <e> <q> : "≠" U2260	# also =/, /=
 <Multi_key> <I> <n> <f> : "∞" U221e	# also 88
 
+# sets
+<Multi_key> <s> <n> : "∩" U2229	# Set INTERSECTION or \cap
+<Multi_key> <s> <u> : "∪" U222a	# Set UNION or \cup
+<Multi_key> <s> <N> : "⋂" U22c2	# N-ARY INTERSECTION or \bigcap
+<Multi_key> <s> <U> : "⋃" U22c3	# N-ARY UNION or \bigcup
+<Multi_key> <s> <e> : "∅" U2205 # EMPTY SET
+<Multi_key> <s> <d> : "∖" U2216 # SET MINUS
+<Multi_key> <s> <c> : "⊂" U2282 # SUBSET OF
+
+
 # greeks (selected)
 <Multi_key> <k> <l> <a> : "α" U03b1	# GREEK SMALL LETTER ALPHA
 <Multi_key> <k> <l> <b> : "β" U03b2	# GREEK SMALL LETTER ALPHA
@@ -25,6 +35,7 @@ include "%L"   # load default compose sequences in
 <Multi_key> <k> <l> <w> : "ω" U03c9	# GREEK SMALL LETTER OMEGA
 <Multi_key> <k> <v> <e> : "ε" U03b5	# GREEK SMALL LETTER EPSILON
 <Multi_key> <k> <l> <G> : "Γ" U0393	# GREEK CAPITAL LETTER GAMMA
+<Multi_key> <k> <l> <S> : "Σ" U03a3 	# GREEK CAPITAL LETTER SIGMA
 <Multi_key> <k> <l> <F> : "Φ" U03a6	# GREEK CAPITAL LETTER PHI
-
+<Multi_key> <k> <l> <W> : "Ω" U03a9	# GREEK CAPITAL LETTER OMEGA
 
