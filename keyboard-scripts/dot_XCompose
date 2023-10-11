@@ -1,16 +1,23 @@
 include "%L"   # load default compose sequences in 
                # /usr/share/X11/locale/en_US.UTF-8/Compose
 
-<Multi_key> <l> <t> <e> : "≤" U2264	# also <=
-<Multi_key> <g> <t> <e> : "≥" U2265	# also >=
-<Multi_key> <n> <e> <q> : "≠" U2260	# also =/, /=
-<Multi_key> <I> <n> <f> : "∞" U221e	# also 88
+<Multi_key> <l> <t> <e>     : "≤" U2264	# also <=
+<Multi_key> <g> <t> <e>     : "≥" U2265	# also >=
+<Multi_key> <n> <e> <q>     : "≠" U2260	# also =/, /=
+<Multi_key> <I> <n> <f>     : "∞" U221e	# also 88
+<Multi_key> <i> <n> <t>     : "∫" U222b	# INTEGRAL
+<Multi_key> <i> <2> <n> <t> : "∬" U222c # DOUBLE INTEGRAL
+<Multi_key> <i> <3> <n> <t> : "∭" U222d # TRIPLE INTEGRAL
+
 
 # sets
 <Multi_key> <s> <n> : "∩" U2229	# Set INTERSECTION or \cap
 <Multi_key> <s> <u> : "∪" U222a	# Set UNION or \cup
 <Multi_key> <s> <N> : "⋂" U22c2	# N-ARY INTERSECTION or \bigcap
 <Multi_key> <s> <U> : "⋃" U22c3	# N-ARY UNION or \bigcup
+<Multi_key> <s> <i> : "∈" U2208 # ELEMENT OF
+<Multi_key> <s> <I> : "∉" U2209 # NOT AN ELEMENT OF
+#<Multi_key> <s> <s> <i> : "∊" U220a # SMALL ELEMENT OF
 <Multi_key> <s> <e> : "∅" U2205 # EMPTY SET
 <Multi_key> <s> <d> : "∖" U2216 # SET MINUS
 <Multi_key> <s> <c> : "⊂" U2282 # SUBSET OF
@@ -18,7 +25,8 @@ include "%L"   # load default compose sequences in
 
 # greeks (selected)
 <Multi_key> <k> <l> <a> : "α" U03b1	# GREEK SMALL LETTER ALPHA
-<Multi_key> <k> <l> <b> : "β" U03b2	# GREEK SMALL LETTER ALPHA
+<Multi_key> <k> <l> <b> : "β" U03b2	# GREEK SMALL LETTER BETA
+<Multi_key> <k> <l> <d> : "δ" U03b4	# GREEK SMALL LETTER DELTA
 <Multi_key> <k> <l> <g> : "γ" U03b3	# GREEK SMALL LETTER GAMMA
 <Multi_key> <k> <l> <h> : "η" U03b7	# GREEK SMALL LETTER ETA
 <Multi_key> <k> <l> <q> : "θ" U03b8	# GREEK SMALL LETTER THETA
@@ -35,6 +43,7 @@ include "%L"   # load default compose sequences in
 <Multi_key> <k> <l> <w> : "ω" U03c9	# GREEK SMALL LETTER OMEGA
 <Multi_key> <k> <v> <e> : "ε" U03b5	# GREEK SMALL LETTER EPSILON
 <Multi_key> <k> <l> <G> : "Γ" U0393	# GREEK CAPITAL LETTER GAMMA
+<Multi_key> <k> <l> <D> : "Δ" U0394	# GREEK CAPITAL LETTER DELTA
 <Multi_key> <k> <l> <S> : "Σ" U03a3 	# GREEK CAPITAL LETTER SIGMA
 <Multi_key> <k> <l> <F> : "Φ" U03a6	# GREEK CAPITAL LETTER PHI
 <Multi_key> <k> <l> <W> : "Ω" U03a9	# GREEK CAPITAL LETTER OMEGA
