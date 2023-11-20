@@ -1,4 +1,13 @@
+# ~/.profile:
 # commands to be run on shell login, and GUI login on Ubuntu
+
+# custom variables
+export EDITOR=nvim
+
+# custom keyboard layout
+## remap capslock to ctrl + esc
+## setup 3rd layer and compose key
+~/keyboard-scripts/kb-layout.sh
 
 # custom paths
 ## texlive 2023
@@ -8,3 +17,8 @@ export INFOPATH="/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH"
 
 ## personal scripts
 export PATH="$HOME/dotfiles/scripts:$PATH"
+
+## use bookmarks (see scripts/bm) 
+if [ -d "$HOME/.bookmarks" ]; then
+  export CDPATH=.:$HOME/.bookmarks
+fi
