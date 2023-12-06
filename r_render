@@ -14,8 +14,9 @@ Rscript -e "rmarkdown::render(
 
 function knit2pdfsol { Rscript -e "rmarkdown::render(
   '$1',
-  # output_file = paste0(dirname('$1'),'${1%%.*}-soln','.pdf')
-  output_file = paste0('${path}','/','${filesansext}-soln','.pdf')
+  # output_file = paste0(dirname('$1'),'${1%%.*}-soln','.pdf'),
+  output_file = paste0('${path}','/','${filesansext}-soln','.pdf'),
+  params = list(show_soln = TRUE)
 )"; }
 
 
