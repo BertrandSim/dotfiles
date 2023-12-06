@@ -1,0 +1,27 @@
+# functions to convert rmd files to pdf
+
+function knit2pdf { 
+
+  path=$(dirname {'$1'})
+  base=$(basename $1)
+  filesansext=${base%%.*}
+
+Rscript -e "rmarkdown::render(
+  '$1',
+  # output_file = paste0(dirname('$1'),'/${1%%.*}','.pdf') # need to get basename
+  output_file = paste0('${path}','/','${filesansext}','.pdf')
+)"; }
+
+function knit2pdfsol { Rscript -e "rmarkdown::render(
+  '$1',
+  # output_file = paste0(dirname('$1'),'${1%%.*}-soln','.pdf')
+  output_file = paste0('${path}','/','${filesansext}-soln','.pdf')
+)"; }
+
+
+
+export -f knit2pdf
+export -f knit2pdfsol
+
+# setup autocompletion only for .Rmd files
+# complete -f -X '!*.Rmd' knit2pdf
