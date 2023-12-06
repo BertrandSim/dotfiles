@@ -118,10 +118,14 @@ if ! shopt -oq posix; then
 fi
 
 
+########################
 
 # custom variables, keyboard layouts, paths, and scripts
 # see dot_profile -> ~/.profile
 
 
 
+# custom r scripts
+## render rmd to pdf, with optional solutions
+source $HOME/dotfiles/r_render
 
