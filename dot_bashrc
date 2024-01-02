@@ -124,6 +124,11 @@ fi
 # see dot_profile -> ~/.profile
 
 
+## use bookmarks (see scripts/bm) 
+if [ -d "$HOME/.bookmarks" ]; then
+  export CDPATH=.:$HOME/.bookmarks
+fi
+
 
 # custom r scripts
 ## render rmd to pdf, with optional solutions
