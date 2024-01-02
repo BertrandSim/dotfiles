@@ -1,11 +1,11 @@
 # setup inverse search
 set synctex true
-set synctex-editor-command "nvim +%{line} %{input}"
+set synctex-editor-command "gvim +%{line} %{input}"
 
 # use shortnames for window titles
 # to be able to get the preview the filename easily in a desktop session
-set window-title-home-titde true
-# set window-title-basename true
+set window-title-basename true
+set window-title-home-tilde true
 
 # use clipboard register ("+) instead of primary selection ("*)
 set selection-clipboard clipboard
