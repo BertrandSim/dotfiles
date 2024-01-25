@@ -1,4 +1,18 @@
-# functions to convert rmd files to pdf
+# functions to convert rmd files to html or pdf
+
+function knit2html ( 
+
+  path=$(dirname {'$1'})
+  base=$(basename $1)
+  filesansext=${base%%.*}
+
+  Rscript -e "rmarkdown::render(
+    '$1',
+    output_format = 'html_document',
+    # output_file = paste0(dirname('$1'),'/${1%%.*}','.html') # need to get basename
+    output_file = paste0('${path}','/','${filesansext}','.html')
+  )";
+)
 
 function knit2pdf ( 
 
@@ -29,6 +43,7 @@ function knit2pdfsol (
 
 
 
+export -f knit2html
 export -f knit2pdf
 export -f knit2pdfsol
 
