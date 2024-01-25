@@ -22,7 +22,7 @@ function knit2pdf (
 
   Rscript -e "rmarkdown::render(
     '$1',
-    # output_file = paste0(dirname('$1'),'/${1%%.*}','.pdf') # need to get basename
+    output_format = 'pdf_document',
     output_file = paste0('${path}','/','${filesansext}','.pdf')
   )";
 )
@@ -35,7 +35,7 @@ function knit2pdfsol (
 
   Rscript -e "rmarkdown::render(
     '$1',
-    # output_file = paste0(dirname('$1'),'${1%%.*}-soln','.pdf'),
+    output_format = 'pdf_document',
     output_file = paste0('${path}','/','${filesansext}-soln','.pdf'),
     params = list(show_soln = TRUE)
   )"; 
