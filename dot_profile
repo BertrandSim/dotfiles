@@ -18,6 +18,10 @@ export INFOPATH="/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH"
 ## personal scripts
 export PATH="$HOME/dotfiles/scripts:$PATH"
 
+# custom r scripts
+## render rmd to pdf, with optional solutions
+source $HOME/dotfiles/r_render
+
 ## use bookmarks (see scripts/bm) 
 if [ -d "$HOME/.bookmarks" ]; then
   export CDPATH=.:$HOME/.bookmarks
