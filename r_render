@@ -2,8 +2,8 @@
 
 function knit2html ( 
 
-  path=$(dirname {'$1'})
-  base=$(basename $1)
+  path=$(dirname "$1")
+  base=$(basename "$1")
   filesansext=${base%%.*}
 
   Rscript -e "rmarkdown::render(
@@ -16,8 +16,8 @@ function knit2html (
 
 function knit2htmlsol ( 
 
-  path=$(dirname {'$1'})
-  base=$(basename $1)
+  path=$(dirname "$1")
+  base=$(basename "$1")
   filesansext=${base%%.*}
 
   Rscript -e "rmarkdown::render(
@@ -30,8 +30,8 @@ function knit2htmlsol (
 
 function knit2pdf ( 
 
-  path=$(dirname {'$1'})
-  base=$(basename $1)
+  path=$(dirname "$1")
+  base=$(basename "$1")
   filesansext=${base%%.*}
 
   Rscript -e "rmarkdown::render(
@@ -43,8 +43,8 @@ function knit2pdf (
 
 function knit2pdfsol ( 
 
-  path=$(dirname {'$1'})
-  base=$(basename $1)
+  path=$(dirname "$1")
+  base=$(basename "$1")
   filesansext=${base%%.*}
 
   Rscript -e "rmarkdown::render(
@@ -64,3 +64,26 @@ export -f knit2pdfsol
 
 # setup autocompletion only for .Rmd files
 # complete -f -X '!*.Rmd' knit2pdf
+#
+# knitr::knit2pdf for Rnw -> tex -> pdf
+
+
+
+function knit2test ( 
+
+  # path=$(dirname {'$1'})  # path is always . even if a dir is specified
+  # path=$(dirname '$1') # same as above. due to single quotes vs double quotes!
+  path=$(dirname "$1") # works
+  # path=$(dirname $1)  # does not work with spaces in filename
+  # base=$(basename $1) # does not work with spaces in filename
+  base=$(basename "$1")
+  filesansext=${base%%.*}
+
+  Rscript -e "cat(
+    'first arg:','$1','\n',
+    'path: ','${path}','\n',
+    'filesansext: ','${filesansext}','\n'
+  )";
+)
+
+# export -f knit2test
